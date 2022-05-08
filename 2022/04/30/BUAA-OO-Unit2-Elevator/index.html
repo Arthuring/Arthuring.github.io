@@ -235,12 +235,12 @@
 <h2 id="一架构设计及uml">一、架构设计及UML</h2>
 <p>一个直观的总体架构图</p>
 <p>
-  <img src="%5cimg%5csrcElevator%5csum.png" alt="sum">
+  <img src="/img/srcElevator/sum.png" alt="sum">
 
 </p>
 <h3 id="1第一次作业">1、第一次作业</h3>
 <p>
-  <img src="https://images.cnblogs.com/cnblogs_com/blogs/743000/galleries/2153054/o_220429112147_H5UML.png" alt="H5UML">
+  <img src="/img/srcElevator/H5UML.png" alt="H5UML">
 
 </p>
 <p>完成第一次时，为了满足后续作业的迭代要求，我花了很多时间在架构设计上。虽然第一次作业对于线程安全的要求不是很高，我还是了解了一些多线程设计模式，并最终选择了生产者消费者模式。在本架构中，共有两个线程类，一个线程安全类。输入线程<code>InputThread</code>相当于是生产者，电梯线程Elevator相当于是消费者，线程安全类等待队列<code>PersonQueue</code>相当于是托盘。每一个楼座维护一个<code>PersonQueue</code></p>
@@ -248,7 +248,7 @@
 <p>电梯自身的状态不由<code>Strategy</code>控制，而是电梯内部维护一个有限状态机，通过电梯的内部类<code>Status</code>表示电梯目前所处的状态和电梯的状态转移，负责发出电梯的到达、开门等状态信息。电梯的状态可以抽象成三个状态：开门中<code>Opening</code>，运行中<code>Running</code>，决策中<code>Waiting</code>，这三个状态之间的状态转移是保证电梯正确运行的基础，也是我在第一次作业中花费最多时间设计和调试的部分。</p>
 <h3 id="2第二次作业">2、第二次作业</h3>
 <p>
-  <img src="https://images.cnblogs.com/cnblogs_com/blogs/743000/galleries/2153054/o_220429112242_H6UML.png" alt="H6UML">
+  <img src="/img/srcElevator/H6UML.png" alt="H6UML">
 
 </p>
 <p>第二次作业在架构上与第一次作业没有太大变动。第二次作业增加了多部电梯和环状电梯。</p>
@@ -276,7 +276,7 @@
 <p>对于第三点，我参考了实验代码，加入了<code>RequestChecker</code>类，从而实现请求的release和acquire，当acquire的次数和请求数量相等时，即可发出结束信号，通知所有线程结束，并最终结束程序。</p>
 <h3 id="4uml协作图">4、UML协作图</h3>
 <p>
-  <img src="%5cimg%5csrcElevator%5cUMLTimer.png" alt="UMLTimer">
+  <img src="/img/srcElevator/UMLTimer.png" alt="UMLTimer">
 
 </p>
 <h3 id="5扩展可能">5、扩展可能</h3>
@@ -345,20 +345,20 @@ $$
 <h3 id="3第三次作业的线程bug">3、第三次作业的线程bug</h3>
 <p>第三次作业在自己简单测试后，首次提交获得了全面RTLE的好成绩):</p>
 <p>
-  <img src="%5cimg%5csrcElevator%5cRTLE.png" alt="RTLE">
+  <img src="/img/srcElevator/RTLE.png" alt="RTLE">
 
 </p>
 <p>并且这个bug在本地完全无法复现，而且评测机在RTLE时不给输出翻译，于是只得通过print流派来debug。</p>
 <p>最终发现，bug为先开启输入线程，再初始化电梯，导致最早到达的请求没有符合条件的中转楼层，只能被规划到默认的零层，而没有电梯可以到达0层，因此这个请求被永远卡住，无法查收，导致程序无法终止，产生RTLE</p>
 <p>
-  <img src="%5cimg%5csrcElevator%5cbug3.png" alt="RTLE">
+  <img src="/img/srcElevator/bug3.png" alt="RTLE">
 
 </p>
 <p>改正这个bug后，中测强测和互测没有被发现bug</p>
 <h2 id="五测试及hack">五、测试及hack</h2>
 <h3 id="1测试样例构造">1、测试样例构造</h3>
 <p>
-  <img src="%5cimg%5csrcElevator%5ctest.png" alt="test">
+  <img src="/img/srcElevator/test.png" alt="test">
 
 </p>
 <p>经过第一次作业测试样例构造失败的教训，从第二次作业开始使用思维导图来有条理的构造测试样例。在样例的保存方式上，也采用了更加有条理的方式。以下是部分测试样例的文件树。</p>
@@ -400,16 +400,16 @@ $$
 <p>在三次作业中，我均编写了评测机来尽可能的保证程序正确性。第一次作业的评测机编写，我参考了讨论区同学分享的方法完成。第二次作业中，我和小伙伴一起完善了评测机，增加了评测机的评判逻辑以及支持了一键多文件测评功能。第三次作业中，我们进一步完善了评测机，开发了多进程一键评测功能，大大提高了评测的效率。</p>
 <p>一些评测机的输出log图</p>
 <p>
-  <img src="%5cimg%5csrcElevator%5ctestMachine1.png" alt="testMachine1">
+  <img src="/img/srcElevator/testMachine1.png" alt="testMachine1">
 
 </p>
 <p>
-  <img src="%5cimg%5csrcElevator%5ctestMachine2.png" alt="testMachine1">
+  <img src="/img/srcElevator/testMachine2.png" alt="testMachine1">
 
 </p>
 <p>这个评测机有个小缺点，就是多进程评测的时候会调用脚本，然后就会弹出很多弹窗，有点影响观感，测着测着突然弹窗有点让人欲乐又止，不知道有没有什么解决方法鸭</p>
 <p>
-  <img src="%5cimg%5csrcElevator%5cwindow.png" alt="window">
+  <img src="/img/srcElevator/window.png" alt="window">
 
 </p>
 <h2 id="六心得体会">六、心得体会</h2>
