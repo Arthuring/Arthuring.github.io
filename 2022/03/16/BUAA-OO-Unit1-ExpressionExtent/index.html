@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Arthuring&#39;s Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://zhaohuabing.com/img/home-bg-flower31.jpg">
+    <meta property="twitter:image" content="https://zhaohuabing.com/img/home-bg-flower31.jpg" />
+    
+
+    
+    <meta name="title" content="BUAA-OO-Unit1-ExpressionExtent" />
+    <meta property="og:title" content="BUAA-OO-Unit1-ExpressionExtent" />
+    <meta property="twitter:title" content="BUAA-OO-Unit1-ExpressionExtent" />
+    
+
+    
+    <meta name="description" content="BUAA_OO_Unit1总结！纯java新手的摸爬滚打QAQ">
+    <meta property="og:description" content="BUAA_OO_Unit1总结！纯java新手的摸爬滚打QAQ" />
+    <meta property="twitter:description" content="BUAA_OO_Unit1总结！纯java新手的摸爬滚打QAQ" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Arthuring">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>BUAA-OO-Unit1-ExpressionExtent | Arthuring Blog</title>
+
+    <link rel="canonical" href="/2022/03/16/BUAA-OO-Unit1-ExpressionExtent/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Arthuring&#39;s Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/oo">oo</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/post-bg-flower2.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/object-oriented" title="Object Oriented">
+                            Object Oriented
+                        </a>
+                        
+                    </div>
+                    <h1>BUAA-OO-Unit1-ExpressionExtent</h1>
+                    <h2 class="subheading">OO-U1总结-表达式展开</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Arthuring
+                             
+                            on 
+                            Saturday, March 26, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1 id="第一单元作业总结--表达式展开">第一单元作业总结&ndash;表达式展开</h1>
+<h2 id="一总体情况">一、总体情况</h2>
+<p>三次作业总共的BNF描述如下
+$$
+\begin{aligned}
+Expr &amp;\rightarrow [+|-]Term|Expr[+|-]Term\newline
+Term &amp;\rightarrow [+|-]Factor|Term*Factor\newline
+Factor &amp;\rightarrow ConstFactor|ExprFactor|VarFactor\newline
+ConstFactor &amp;\rightarrow SignedInteger\newline
+ExprFactor &amp;\rightarrow (Expr)[exp]\newline
+VarFactor &amp;\rightarrow PowerFactor|TriFactor|SumFactor|FuncCall\newline
+TriFactor &amp;\rightarrow sin(Factor)[exp]|cos(Factor)[exp]\newline
+exp &amp;\rightarrow ** [+] SignedInteger\newline
+SignedInteger &amp;\rightarrow [+|-] Integer\newline
+Integer &amp;\rightarrow (0|1|2|&hellip;|9)\lbrace 0|1|2|&hellip;|9\rbrace \newline
+FuncDefine &amp;\rightarrow FuncName(FuncVar [, FuncVar [, FuncVar]])=Expr\newline
+FuncVar &amp;\rightarrow x|y|z\newline
+FuncCall &amp;\rightarrow FuncName(Factor [, Factor [, Factor]])\newline
+FuncName&amp;\rightarrow f|g|h\newline
+SumFactor&amp;\rightarrow sum(i,ConstFactor,ConstFactor,SumExpr)\newline
+SumExpr &amp;\rightarrow Factor
+\end{aligned}
+$$</p>
+<p>三次作业难度递进，分别是只带一层括号的表达式展开，加入三角因子、求和函数、自定义函数的表达式展开，支持因子间嵌套的表达式展开。
+由于我在第一次设计架构时已经考虑了括号嵌套，因子类型扩展这两方面，因此从第一次作业到第二、三次作业迭代的过程中没有进行架构上的重构。
+总体处理流程如下
+$$
+读入\to预处理\to解析表达式\to括号展开\to三角优化等\to输出
+$$
+总体文件树如下</p>
+<pre tabindex="0"><code>─src
+    │  MainClass.java
+    │  
+    ├─expression
+    │      BasicTerm.java
+    │      Cos.java
+    │      Expr.java
+    │      Factor.java
+    │      Func.java
+    │      Power.java
+    │      Sin.java
+    │      Sum.java
+    │      Term.java
+    │      Variable.java
+    │      
+    └─parser
+            Parser.java
+            Token.java
+</code></pre><h2 id="二架构设计度量分析与迭代">二、架构设计度量分析与迭代</h2>
+<h3 id="21输入处理包parserpackege">2.1、输入处理包（parserPackege）</h3>
+<p>输入处理包包含两个类，分别是用于识别字符串信息的Token类和用于递归下降构建表达式的Parser类。UML如下</p>
+<p>
+  <img src="/img/src/parserPackegeUML.png" alt="ParserUML">
+
+</p>
+<h4 id="211token类分解字符串">2.1.1Token类分解字符串</h4>
+<p>可以发现，这次作业中的输入可以分为一系列不可再分的基本单元，例如带符号数字<code>NUM</code>，幂运算符号<code>“**”EXP</code>等，如果按照单个字符扫描的方法，一个个字符扫描，就会把这些本来具有整体意义的符号拆开，增加处理难度。因此我选择用正则表达式整体识别这些式子中不可再分的部分。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> String ADD_P <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;(?&lt;ADD&gt;\\s*\\+\\s*)&#34;</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> String SUB_P <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;(?&lt;SUB&gt;\\s*-\\s*)&#34;</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> String NUM_P <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;(?&lt;NUM&gt;\\s*([+-]?)(\\d+)\\s*)&#34;</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">...</span><span style="color:#6272a4">//一些基本单元的正则表达式
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Pattern TOKEN_PATTERN <span style="color:#ff79c6">=</span> Pattern<span style="color:#ff79c6">.</span><span style="color:#50fa7b">compile</span><span style="color:#ff79c6">(</span>ADD_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> SUB_P <span style="color:#ff79c6">+</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> EXP_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> NUM_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> LP_P <span style="color:#ff79c6">+</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> RP_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> VAR_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> MULT_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> ERR_P<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//最终正则表达式
+</span></span></span></code></pre></div><p><strong>Token类</strong>类似于Training中递归下降法代码中的Lexer类，起到扫描字符串的作用。Token类第一个功能是将输入的字符串识别式子中最小的基本单元，将他们用<code>ArrayList</code>容器存储起来，从而保存他们的顺序
+为了更好的表示这些基本单元，可以用<code>enum</code>定义<code>Type</code>，增加代码的可读性，并且与字符串类做区分。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">enum</span> Type <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>        ADD<span style="color:#ff79c6">,</span> SUB<span style="color:#ff79c6">,</span> MULT<span style="color:#ff79c6">,</span> NUM<span style="color:#ff79c6">,</span> LP<span style="color:#ff79c6">,</span> RP<span style="color:#ff79c6">,</span> VAR<span style="color:#ff79c6">,</span> EXP ···
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><p>递归下降法需要完成从左向右扫描输入序列，由于现在输入流就存在Token类，其自身也能完成这个工作。需要实现记录当前扫描的位置，获取当前位置的符号种类和具体信息，并且可以让其继续扫描这三个功能。
+
+  <img src="/img/src/TokenUML.png" alt="ParserUML">
+
+</p>
+<h5 id="迭代方法">迭代方法：</h5>
+<p>迭代时只需要添加新增元素的正则表达式以及在<code>Type</code>中添加相应的符号种类即可</p>
+<h5 id="迭代路径">迭代路径：</h5>
+<pre><code>hw1 识别ADD, SUB, MULT, NUM, LP, RP, VAR, EXP
+hw2 新增SUM SIN COS FUNC
+hw3 无 
+</code></pre>
+<h4 id="212parser类构建表达式树状结构">2.1.2Parser类构建表达式树状结构</h4>
+<p>运用递归下降法解析表达式，使用三个层次，表达式，项，因子。为每个层次、每个因子写好解析方法，递归的调用这些方法，就可以处理括号、因子的嵌套关系。对于求和函数和自定义函数，我选择将两者在解析这一步时就处理好，调用<code>Sum</code>和<code>Func</code>类中的方法，让其返回一个表达式因子加入到整个表达式树中。当遇到表达式前或者项中间的“-”号时，将其看作-1，作为常数因子添加在项中。比如$-(表达式)&quot;=&quot;-1<em>表达式$，$x</em>-1 = x* -1 * 1$，</p>
+<p>
+  <img src="/img/src/ParserUML.png" alt="ParserUML">
+
+</p>
+<p>解析流程：</p>
+<p>
+  <img src="/img/src/parser1.png" alt="ParserUML">
+
+</p>
+<p>分析表达式 – 找出表达式中所有项，并加入这个表达式</p>
+<p>
+  <img src="/img/src/Parser2.png" alt="ParserUML">
+
+</p>
+<p>分析项—找出项中的所有因子，加入这个项中</p>
+<p>随后再针对各类因子进行具体解析，特别的，如果遇到函数调用因子和求和因子，则调用这两类的方法，直接返回得到一个表达式因子。</p>
+<h5 id="迭代方法-1">迭代方法</h5>
+<p>只需要添加新增因子的解析方法即可</p>
+<h5 id="迭代路径-1">迭代路径</h5>
+<pre><code>hw1 解析`Expr` `Term` `Factor`(NUM VAR ExprFactor)
+hw2 新增解析`Factor`(SIN COS SUM FUNC)
+hw3 修改`SIN` `COS` `FUNC`的解析方法，使其可以解析因子嵌套
+</code></pre>
+<h3 id="22表达式结构存储包expressionpackege">2.2表达式结构存储包（expressionPackege）</h3>
+<p>最终实现的架构如下
+
+  <img src="/img/src/hw3UML.png" alt="hw3UML">
+
+</p>
+<p><code>Factor</code>：表示因子的抽象类</p>
+<p><code>Expr</code>：表达式，储存了这个表达式中所有的项，具有计算、化简等方法</p>
+<p><code>Term</code>：项，以ArrayList的形式储存了项中未进行乘法运算的因子，具有计算方法</p>
+<p><code>BasicTerm</code>：基本项，每一项在进行完乘法运算后都可以形成若干个基本项，以<code>coe</code>(系数)、<code>Map&lt;Power, BigInteger&gt;</code>(因子，指数) 的形式储存了乘法运算，指数合并后的结果</p>
+<p><code>Power</code>: 幂函数，在本架构中，所有的因子都以这种形式储存</p>
+<p><code>Variable</code>：变量</p>
+<p><code>Sin Cos</code>：三角函数</p>
+<p><code>Sum</code>：求和函数，解析后直接返回一个表达式因子</p>
+<p><code>Func</code>：自定义函数，解析后直接返回一个表达式因子</p>
+<p>计算流程：</p>
+<ul>
+<li>
+<p>乘法：利用<code>BasicTerm</code>中的<code>Map&lt;Power, BigInteger&gt;</code>储存因子和其指数，如果已在map中则指数相加，系数相乘，如果不在则直接插入Map，两个BasicTerm相乘就是将两个HashMap进行合并，coe相乘</p>
+</li>
+<li>
+<p>加法：利用<code>Expr</code>中的<code>Map&lt;Map&lt;Power,BigInteger&gt;,BigInteger&gt;</code>储存项和其系数，已在Map中则系数相加，不在则直接插入</p>
+</li>
+<li>
+<p>三角优化：分为平方优化和Sin二倍角优化，Sin二倍角优化在<code>BasicTerm</code>内查找符合条件的因子并合并，平方优化在<code>Expr</code>的项间查着符合条件的项合并</p>
+</li>
+</ul>
+<h4 id="221本架构的优点">2.2.1本架构的优点</h4>
+<p>在解析时，将所有因子<strong>统一</strong>以 <strong>系数*底数**指数</strong> 的形式储存，也就是UML中的<code>Power</code>类。例如常数因子<code>5</code>表示为<code>5 * x ** 0</code>，将幂函数因子<code>x**5</code>表示成<code>1* x ** 5</code>，表达式因子则表示为系数为1，底数为表达式自身，指数为其指数的因子。 便于在括号展开时快速判断因子之间的相等关系，便于进行相同因子的指数处理（乘法），只需重写Power等因子的<code>equal</code>和<code>hashcode</code>方法，将其放入<code>BasicTerm</code>的<code>HashMap&lt;Power,BigInteger&gt;</code>，即可完成指数合并。</p>
+<p>在计算时，<strong>统一以BasicTerm类</strong>储存所有项，<code>HashMap</code>自带equal，只需要将其作为key,系数作为value放入<code>Map&lt;Map&lt;Power,BigInteger&gt;,BigInteger&gt;</code>不需要重写equal便可以完成对同类项的系数合并，便于合并同类项（加法），也十分便于进行三角函数的化简。</p>
+<h4 id="222本架构的缺点">2.2.2本架构的缺点</h4>
+<p>判断Sin因子和Cos因子是否相等（为同类）的时候，使用了Sin内部的因子的<strong>toString</strong>返回值是否相等的方式，这样可能使<strong>数学意义上相等</strong>的两个Sin被判定成不等，例如
+$$
+sin((x)) 、 sin(x)
+$$
+在本架构中会被判断成不等，并且在处理
+$$
+sin(cos(1))、cos(sin(0))
+$$
+等表达式数值化简的时候会产生不便。
+为了解决这个问题，就必须为所有的因子编写 <strong>“拆包装”</strong> 方法，去掉一层层括号，将其中的最简单表达形式求解出来，这个过程比较复杂，也有很多容易忽略并且产生bug的点，在后文bug分析中会详细说明。</p>
+<h4 id="223本架构的迭代路径">2.2.3本架构的迭代路径</h4>
+<h5 id="作业一">作业一</h5>
+<p>
+  <img src="/img/src/hw1UML.png" alt="hw1UML">
+
+
+第一次作业形成了基本的表达式层次结构，从上到下，层次依次从高到底，用Power统一储存常数和变量，常数不单独设置一类。在优化方面，对于幂函数的输出进行了优化。</p>
+<h5 id="作业二">作业二</h5>
+<p>
+  <img src="/img/src/hw2UML.png" alt="hw2UML">
+
+</p>
+<p>第二次作业相比第一次作业变化较大，主要是因为添加了Sin和Cos因子，这两个因子无法和之前的变量因子进行合并，于是导致计算后的每一项仅用Power无法描述，于是添加了新的一个BasicTerm类用来描述括号展开时合并指数后的项。另外，新增了求和函数类和自定义函数类，并且为了实现自定义函数和求和函数中涉及的代换，为每类表达式结构储存类都添加了substitute方法。在优化方面，主要添加了三角函数的平方优化。</p>
+<h5 id="作业三">作业三</h5>
+<p>
+  <img src="/img/src/hw3UML.png" alt="hw3UML">
+
+</p>
+<p>第三次作业相对于第二次作业没有架构上的大的改变，主要是在优化方面进行了一些调整。由于地单词作业开始支持三角函数内部嵌套表达式因子，那么区分三角函数内部的表达式因子是否可以用更简单的幂函数等其他因子替代将会对化简产生很大的影响，因此我添加了reducePackege方法，将深嵌套在层层结构中的实际上的简单因子拆掉外层的包装。并且添加了sin的二倍角公式优化。</p>
+<p>
+  <img src="/img/src/deep.jpg" alt="deep">
+
+
+超级深嵌套，乐)</p>
+<h5 id="总结">总结</h5>
+<p>本架构在hw1的基础上，hw2的架构迭代增加较多，hw2到hw3几乎没有架构上的变动。整体上没有推倒重构，得益于在hw1就已经采用递归下降来处理嵌套括号，并设想了之后可能会增加因子种类该如何扩展。</p>
+<h2 id="三度量分析">三、度量分析</h2>
+<p>指标含义：
+OC：类的非抽象方法圈复杂度
+WMC：类的总圈复杂度
+CogC:认知复杂度，反应一个方法的可理解性，循环分支等结构越多，可理解性越差，数值越高
+ev(G):基本复杂度
+iv(G):模块设计复杂度，衡量模块和其他模块的调用关系，越高说明模块和其他模块之间的调用关系复杂，耦合程度越高
+v(G):判定结构复杂度，与程序的独立路径数量有关，越高说明程序越难以维护</p>
+<h3 id="31第一次作业">3.1第一次作业</h3>
+<h4 id="代码规模">代码规模</h4>
+<p>
+  <img src="/img/src/hw1s.png" alt="statics">
+
+</p>
+<h4 id="复杂度分析">复杂度分析</h4>
+<p>
+  <img src="/img/src/hw1c.png" alt="class">
+
+</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>CogC</th>
+<th>ev(G)</th>
+<th>iv(G)</th>
+<th>v(G)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>expression.Power.toString()</td>
+<td>27.0</td>
+<td>2.0</td>
+<td>11.0</td>
+<td>11.0</td>
+</tr>
+<tr>
+<td>parser.Parser.pareFactor()</td>
+<td>27.0</td>
+<td>9.0</td>
+<td>11.0</td>
+<td>11.0</td>
+</tr>
+<tr>
+<td>parser.Parser.parseExpr()</td>
+<td>8.0</td>
+<td>4.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>expression.Expr.toString()</td>
+<td>7.0</td>
+<td>3.0</td>
+<td>6.0</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>Test.main(String[])</td>
+<td>9.0</td>
+<td>3.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>expression.Term.calculate()</td>
+<td>7.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>parser.Parser.pareTerm()</td>
+<td>4.0</td>
+<td>1.0</td>
+<td>4.0</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>parser.Token.extractTokens()</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>expression.Expr.simplify()</td>
+<td>4.0</td>
+<td>1.0</td>
+<td>3.0</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td>expression.Term.mult(Power, Power)</td>
+<td>3.0</td>
+<td>2.0</td>
+<td>3.0</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>117.0</td>
+<td>65.0</td>
+<td>100.0</td>
+<td>105.0</td>
+</tr>
+<tr>
+<td>Average</td>
+<td>2.659</td>
+<td>1.477</td>
+<td>2.272</td>
+<td>2.386</td>
+</tr>
+</tbody>
+</table>
+<p>(由于篇幅限制只展示前10条数值较大的数据)</p>
+<p>可以看出，复杂度主要集中在<code>Parser</code>和<code>Power</code>的<code>toString</code>优化中。行数最多的是<code>Parser</code>类。<code>Parser</code>的复杂度主要是由于表达式结构多变导致的，而<code>Power</code>的<code>toString</code>方法有如此高的复杂度，可能归咎于我的优化方法主要依靠分类讨论实现，有大量的分支。</p>
+<h3 id="32第二次作业">3.2第二次作业</h3>
+<h4 id="代码规模-1">代码规模</h4>
+<p>
+  <img src="/img/src/hw2s.png" alt="statics">
+
+</p>
+<h4 id="复杂度分析-1">复杂度分析</h4>
+<p>
+  <img src="/img/src/hw2c.png" alt="class">
+
+</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>CogC</th>
+<th>ev(G)</th>
+<th>iv(G)</th>
+<th>v(G)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>expression.Power.toString()</td>
+<td>28.0</td>
+<td>3.0</td>
+<td>11.0</td>
+<td>11.0</td>
+</tr>
+<tr>
+<td>expression.Expr.simlifyTri()</td>
+<td>31.0</td>
+<td>6.0</td>
+<td>10.0</td>
+<td>10.0</td>
+</tr>
+<tr>
+<td>parser.Parser.pareCos()</td>
+<td>17.0</td>
+<td>6.0</td>
+<td>10.0</td>
+<td>10.0</td>
+</tr>
+<tr>
+<td>parser.Parser.pareSin()</td>
+<td>21.0</td>
+<td>7.0</td>
+<td>10.0</td>
+<td>11.0</td>
+</tr>
+<tr>
+<td>expression.BasicTerm.toString()</td>
+<td>12.0</td>
+<td>5.0</td>
+<td>8.0</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>parser.Parser.pareFactor()</td>
+<td>8.0</td>
+<td>8.0</td>
+<td>8.0</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>expression.Power.toStringInCos()</td>
+<td>16.0</td>
+<td>2.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>expression.Power.toStringInSin()</td>
+<td>20.0</td>
+<td>2.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>expression.Term.calculate()</td>
+<td>8.0</td>
+<td>1.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>parser.Parser.pareSum()</td>
+<td>11.0</td>
+<td>3.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>parser.Parser.parseExectParameter()</td>
+<td>7.0</td>
+<td>5.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>parser.Parser.parseExpr()</td>
+<td>8.0</td>
+<td>4.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>expression.Func.funcDefine(Token, Expr)</td>
+<td>12.0</td>
+<td>4.0</td>
+<td>6.0</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>expression.BasicTerm.BasicTerm(Power)</td>
+<td>4.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>expression.BasicTerm.containSinCos2()</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>expression.Expr.containSinCos2(Map&lt;Power, BigInteger&gt;)</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>expression.Expr.toString()</td>
+<td>7.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>expression.Power.substitute(Variable, Factor)</td>
+<td>13.0</td>
+<td>6.0</td>
+<td>5.0</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>parser.Parser.pareExprFactor()</td>
+<td>9.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>parser.Parser.pareTerm()</td>
+<td>4.0</td>
+<td>1.0</td>
+<td>4.0</td>
+<td>4.0</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>314.0</td>
+<td>172.0</td>
+<td>246.0</td>
+<td>266.0</td>
+</tr>
+<tr>
+<td>Average</td>
+<td>3.305</td>
+<td>1.810</td>
+<td>2.589</td>
+<td>2.8</td>
+</tr>
+</tbody>
+</table>
+<p>(由于篇幅限制只展示前20条数值较大的数据)</p>
+<p>第二次作业的行数之最还是集中在了<code>Parser</code>类，其次就是<code>Power</code>类。<code>Parser</code>是最重要的输入处理类，而Power在我的架构中是最基本的输出单位，可见对输入的处理是一件需要考虑很多细节的复杂工作，很容易出错。复杂度指标与第一次相比整体上略有提升，但是还可以接受，主要集中在<code>Parser</code>、<code>Power</code>、<code>Expr</code>、<code>BasicTerm</code>这几个类中。<code>Parser</code>、<code>Power</code>分别负责输入输出，<code>Expr</code>和<code>BasicTerm</code>主要负责计算和化简。</p>
+<h3 id="33第三次作业">3.3第三次作业</h3>
+<h4 id="代码规模-2">代码规模</h4>
+<p>
+  <img src="/img/src/hw3s.png" alt="statics">
+
+</p>
+<h4 id="复杂度分析-2">复杂度分析</h4>
+<p>
+  <img src="/img/src/hw3c.png" alt="class">
+
+</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>CogC</th>
+<th>ev(G)</th>
+<th>iv(G)</th>
+<th>v(G)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>expression.Power.Power(BigInteger, Factor, BigInteger)</td>
+<td>27.0</td>
+<td>1.0</td>
+<td>12.0</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>expression.Power.toString()</td>
+<td>28.0</td>
+<td>3.0</td>
+<td>11.0</td>
+<td>11.0</td>
+</tr>
+<tr>
+<td>expression.Expr.simlifyTri()</td>
+<td>31.0</td>
+<td>6.0</td>
+<td>10.0</td>
+<td>10.0</td>
+</tr>
+<tr>
+<td>parser.Parser.parseCos(Mod)</td>
+<td>16.0</td>
+<td>5.0</td>
+<td>10.0</td>
+<td>11.0</td>
+</tr>
+<tr>
+<td>parser.Parser.parseFactor(Mod)</td>
+<td>9.0</td>
+<td>8.0</td>
+<td>10.0</td>
+<td>10.0</td>
+</tr>
+<tr>
+<td>parser.Parser.parseSin(Mod)</td>
+<td>20.0</td>
+<td>6.0</td>
+<td>10.0</td>
+<td>12.0</td>
+</tr>
+<tr>
+<td>expression.BasicTerm.toString()</td>
+<td>12.0</td>
+<td>5.0</td>
+<td>8.0</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>expression.Term.calculate()</td>
+<td>11.0</td>
+<td>1.0</td>
+<td>8.0</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>expression.BasicTerm.containsTriPair(BigInteger)</td>
+<td>17.0</td>
+<td>7.0</td>
+<td>7.0</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>expression.Power.toStringInCos()</td>
+<td>16.0</td>
+<td>2.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>expression.Power.toStringInSin()</td>
+<td>20.0</td>
+<td>2.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>parser.Parser.parseExpr(Mod)</td>
+<td>8.0</td>
+<td>4.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>parser.Parser.parseSum(Mod)</td>
+<td>11.0</td>
+<td>3.0</td>
+<td>7.0</td>
+<td>7.0</td>
+</tr>
+<tr>
+<td>expression.Func.funcDefine(Token, Expr)</td>
+<td>12.0</td>
+<td>4.0</td>
+<td>6.0</td>
+<td>6.0</td>
+</tr>
+<tr>
+<td>expression.BasicTerm.BasicTerm(Power)</td>
+<td>4.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>expression.BasicTerm.betterTwoTri()</td>
+<td>6.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>expression.BasicTerm.containSinCos2()</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>expression.Expr.containSinCos2(Map&lt;Power, BigInteger&gt;)</td>
+<td>7.0</td>
+<td>4.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>expression.Expr.toStingBetterwTir()</td>
+<td>7.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>expression.Expr.toString()</td>
+<td>7.0</td>
+<td>1.0</td>
+<td>5.0</td>
+<td>5.0</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>411.0</td>
+<td>219.0</td>
+<td>320.0</td>
+<td>351.0</td>
+</tr>
+<tr>
+<td>Average</td>
+<td>3.236</td>
+<td>1.724</td>
+<td>2.519</td>
+<td>2.763</td>
+</tr>
+</tbody>
+</table>
+<p>(由于篇幅限制只展示前20条数值较大的数据)</p>
+<p>第三次作业相比第二次作业改动较小，主要添加都在优化方面。可以发现，第三次作业相比第二次作业代码量从1.4k增长到1.9k，但平均复杂度却略有下降，可能是因为新增了很多方法降低了模块间的耦合度。可以发现这次的复杂度大户中新多出一位<code>Power</code>的构造方法，出现它的原因是距离第三次作业截止时间还有1小时的时候发现了一个bug，关于<code>sin</code>内因子提出负号不完全导致的，在紧急抢修的情况下，没有进行很好的设计，而是匆忙的在构造方法上打补丁，最终卡着CheckStyle阈值60行完成了方法，最终造就了一个复杂度高的方法。由此可见，写代码之前的设计工作是很重要的，不经过设计直接写就会导致代码复杂度高从而容易出现bug。</p>
+<h2 id="四bug与测试分析">四、bug与测试分析</h2>
+<h3 id="41在测试过程中发现的bug以及互测时发现他人的bug">4.1、在测试过程中发现的bug以及互测时发现他人的bug</h3>
+<p>由于前两次作业在提交前的测试比较充分，没有在公测、强测和互测中发现bug，第三次在公测中被发现一个bug，解决后没有在强测和互测中被发现bug。
+以下是我在调试和互测过程中发现的典型bug：</p>
+<ol>
+<li>
+<p>指数部分无法解析包含符号的整数</p>
+<p>exp: 
+$$x**+02$$</p>
+</li>
+<li>
+<p>求和因子内部无法解析负数</p>
+<p>exp:
+$$sum(i,-3,-2,i)$$</p>
+</li>
+<li>
+<p>表达式因子代入时容易出错</p>
+<p>exp:</p>
+<p>$$
+g(x) = sin(x)\
+g((sin(x)+x))
+$$</p>
+</li>
+<li>
+<p>三角因子内部缺少括号(提负号不完全)</p>
+<p>exp:
+$$sin(sin(-1)) =sin(-sin(1))$$</p>
+</li>
+<li>
+<p>优化时没有考虑三角因子的指数</p>
+<p>exp:
+$$sin(-1)**2 = -sin(1)**2$$</p>
+</li>
+<li>
+<p>自定义函数形参表顺序不是x、y、z引起的错误带入</p>
+<p>exp:
+$$
+g(y,x) = y + x \
+g(x, x**2) 
+$$</p>
+</li>
+<li>
+<p>sum因子中上下界使用int储存
+$$
+sum(i,1234567890,1234567890,i)
+$$</p>
+</li>
+</ol>
+<h3 id="42测试方法与体会">4.2、测试方法与体会</h3>
+<h4 id="测试方法">测试方法</h4>
+<p>我的测试主要分为自动化评测和手动构造样例两部分。</p>
+<h5 id="自动化测试">自动化测试</h5>
+<p>自动化测试主要分为数据生成和答案检测两方面。</p>
+<p>数据生成方法和递归下降方法类似，只需要按照表达式结构随机生成因子，通过控制递归深度和因子个数来控制式子整体的复杂度。</p>
+<p>答案检测方面，我使用了python的sympy库的equal方法。第一次作业中，由于输入式子可以与程序输出直接比较，因此采用了输入和输出相等来判断对拍。第二次第三次作业由于涉及自定义函数代入和求和函数的计算，给答案检测带来了困难，因此我选择了和小伙伴进行对拍的方式。</p>
+<h5 id="人工构造数据">人工构造数据</h5>
+<p>人工构造数据的重点就是要尽可以找到数据的基本单元，对其进行分类讨论，再把基本单元进行排列组合，构造出数据，尽可能覆盖程序的所有分支。</p>
+<h5 id="测试效果检验">测试效果检验</h5>
+<p>感觉测试的充分与否与强测成绩和互测成绩有着很强的相关性，我打算从强测与互测成绩分析我的测试。</p>
+<h6 id="强测">强测</h6>
+<p>由于事先的测试还算比较充分，因此在强测中没有被发现bug。在保证正确性的情况下，我们可以通过强测性能分反应我们的优化效果。</p>
+<p><strong>第二次失分测试点</strong></p>
+<p>
+  <img src="/img/src/strong1.png" alt="strong1">
+
+</p>
+<p><strong>第三次失分测试点</strong></p>
+<p>
+  <img src="/img/src/strong2.png" alt="strong2">
+
+</p>
+<p>
+  <img src="/img/src/strong3.png" alt="strong3">
+
+</p>
+<p>可以看出，在第二次强测中，因为三角平方优化不够完全而导致有个点性能分较差，而第三次强测中，没有考虑到三角嵌套中的化简，导致丢失很多性能分。</p>
+<p>可见，大量随机测试虽然可以较大程度的保证正确性，但对于优化方面没有太多贡献，对于优化是否全面，还是需要勤快一点，构造测试数据并且人工检查一下优化彻底与否</p>
+<h6 id="互测">互测：</h6>
+<p>三次互测战绩</p>
+<p>
+  <img src="/img/src/hack1.png" alt="hack1">
+
+</p>
+<p>
+  <img src="/img/src/heck2.png" alt="hack2">
+
+</p>
+<p>
+  <img src="/img/src/hack3.png" alt="hack3">
+
+</p>
+<p><strong>第一次测试</strong>和互测时我采用了完全随机的方式，但是我只找到了一个bug，还有一个bug是无法处理+00这种数据，但没有被测出来。从这次互测我发现一个问题，就是数据bug数量大于程序bug数量，随机生成的数据中有很多无法满足形式化表达（也是由于数据生成写的比较仓促）和互测要求，大大降低了测试的效率。并且，大量随机测试对于边界数据的测试可能不够充分，实际上效率并不高。</p>
+<p><strong>第二次测试</strong>和互测由于时间关系，没有写出带有三角因子和函数带入的脚本，因此我采用了完全手造数据的方法测试，由于是手造数据，对边界数据的测试比较充分，在数据的合法性也有所保证，很快就找到了房间中的所有bug(也可能是因为这次房间里只有一个bug)。</p>
+<p><strong>第三次测试</strong>由于因子嵌套规则更加自由，手动构造数据分支有点多，因此采用了自动生成数据结合手动构造数据的方式测试。在提交之前，大部分bug是通过大规模随机测试筛查出的，但在这次互测中，互测屋内找到的bug均为手动构造的边界数据。可以看出，前期随机测试找bug效率较高，但后期通过构造数据能够更加精准的找到bug</p>
+<p>有一个bug不得不在这里提一提，就是关于自定义函数形式形参表的第一个参数不是x的时候，会造成参数重复带入的问题，因为三个实参不是同时带入形参的，带入前面的实参的时候会引入实参中的x，在后面的形参还有x的时候，就会前面实参中的x也代换掉，造成bug</p>
+<p>例如：</p>
+<p>$$
+g(y,x) = y + x \
+g(x, x<strong>2) 
+\正确输出：x+x</strong>2</p>
+<pre><code>\\错误输出：2*x**2
+</code></pre>
+<p>$$</p>
+<p>但这个bug我是在互测已经开始时，看到群佬在水群讨论才突然惊醒！但是为什么没有在之前的测试中找到呢，原来和我对拍的小伙伴非常巧合的也出现了这个bug！看来答案的检测也不能过分依赖对拍脚本，对于人工构造一些数据，还是尽量人工算出正确答案再进行检查。再不得不提一提的是，这个bug强测竟然没有测，互测也无法提交自定义函数，于是很幸运的逃过一劫，乐:)))。</p>
+<h2 id="五收获与体会">五、收获与体会</h2>
+<p>通过完成第一单元的OO作业，我有以下几点收获</p>
+<ul>
+<li>
+<p>快速熟悉起了java的常用类，比如HashMap等容器</p>
+</li>
+<li>
+<p>体会到了和学习C程序设计完全不一样的编程体验，体会到“不要重复造轮子”的含义，有很多基础功能是java的类中已经实现好的，直接使用即可，这样可以更专注于架构的设计，不会过于陷入细节。</p>
+</li>
+<li>
+<p>体会到了架构设计的重要性，一定要先进行设计工作，再进行编码工作，我发现从设计到写出伪代码，再到写出代码这个过程是一步一步细化到细节的，是比一下子就开始写代码，陷入最底层的细节要高效很多的</p>
+</li>
+<li>
+<p>体会到了面向对象编程的层次化结构，发现与面向过程的程序设计不同，面向对象的程序设计更加贴近现实世界，像是在用代码描述这些对象和对象间的关系，更符合人在观察世界时的逻辑。</p>
+</li>
+</ul>
+<p>OO第一单元终于完结撒花啦！！虽然在寒假里完成了pre，可是当第一周打开题目的时候还是被吓了一跳，感觉完全没有思路，于是陷入焦虑中，在坎坷中通过Training、学长的博客和讨论区佬们的帖子找到一些思路，完成架构的设计，最终完成了一周前看起来不可能的任务。这个过程在第二周又轮回重复了一遍，初期还是同样的迷茫，感觉蚌埠住了，然后渐渐找到思路，到最终完成架构设计的豁然开朗。到第三周已经习惯这个心态节奏了，也因为已经有了架构，度过的还算顺利。总之第一单元的OO作业让我在知识和心态方面都有所提升，希望之后的OO学习一切顺利！</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2022/04/30/BUAA-OO-Unit2-Elevator/" data-toggle="tooltip" data-placement="top" title="BUAA-OO-Unit2-Elevator ">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/object-oriented" title="object-oriented">
+                            object-oriented
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://stywang.github.io/">StyWang</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:1274029432@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/Arthuring">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Arthuring&#39;s Blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Arthuring&#39;s Blog 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+</body>
+</html>
