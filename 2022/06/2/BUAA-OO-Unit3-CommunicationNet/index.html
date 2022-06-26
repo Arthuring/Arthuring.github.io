@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Arthuring&#39;s Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://Arthuring.github.io/img/home-bg-flower31.jpg">
+    <meta property="twitter:image" content="https://Arthuring.github.io/img/home-bg-flower31.jpg" />
+    
+
+    
+    <meta name="title" content="BUAA-OO-Unit3-CommunicationNet" />
+    <meta property="og:title" content="BUAA-OO-Unit3-CommunicationNet" />
+    <meta property="twitter:title" content="BUAA-OO-Unit3-CommunicationNet" />
+    
+
+    
+    <meta name="description" content="BUAA_OO_Unit3总结！这个单元好磨练耐心QAQ">
+    <meta property="og:description" content="BUAA_OO_Unit3总结！这个单元好磨练耐心QAQ" />
+    <meta property="twitter:description" content="BUAA_OO_Unit3总结！这个单元好磨练耐心QAQ" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Arthuring">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>BUAA-OO-Unit3-CommunicationNet | Arthuring Blog</title>
+
+    <link rel="canonical" href="/2022/06/2/BUAA-OO-Unit3-CommunicationNet/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Arthuring&#39;s Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/oo">oo</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/post-bg-flower2.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/object-oriented" title="Object Oriented">
+                            Object Oriented
+                        </a>
+                        
+                    </div>
+                    <h1>BUAA-OO-Unit3-CommunicationNet</h1>
+                    <h2 class="subheading">OO-U3总结-人际关系网</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Arthuring
+                             
+                            on 
+                            Monday, January 1, 0001
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1 id="第三单元作业总结--jml与社交网络实现">第三单元作业总结&ndash;JML与社交网络实现</h1>
+<h2 id="关于基于jml测试">关于基于JML测试</h2>
+<p>本单元指导书中推荐的测试方法是进行JUnit测试。在简单尝试后，我感觉JUnit测试能够正常运作的前提是需要构造出合适的测试样例，并且根据官方给出的JML，自己用assert等方式设定正确结果，也就是说使用JUnit测试的前提依然是正确理解JML。既然势必要自行构造测试样例，并且无法通过JUnit判断自己对于官方给出的JML的理解，我最终还是没采用JUnit的测试方式，而是通过传统的编写随机生成数据脚本+搭建评测机和小伙伴对拍的方式实现的测试。</p>
+<p>数据生成和测试方面，我和小伙伴合作编写了数据生成脚本和评测机，并进行了对拍。</p>
+<p>第一次作业中，我主要完成了第一次作业中所有指令的有策略的随机生成部分，可以实现调整生成异常指令的概率，并且在每次更改信息后，通过生成查询指令对状态进行查询。</p>
+<p>例如</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">addPersonPackaged</span>(canErr): <span style="color:#6272a4">#canErr参数控制此次生成指令是否可以异常</span>
+</span></span><span style="display:flex;"><span>    ifErr <span style="color:#ff79c6">=</span> random<span style="color:#ff79c6">.</span>randint(<span style="color:#bd93f9">0</span>,<span style="color:#bd93f9">100</span>)<span style="color:#ff79c6">%</span>errHappenRate <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span> <span style="color:#6272a4">#errHappenRate参数控制异常发生的概率</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(ifErr <span style="color:#ff79c6">and</span> canErr <span style="color:#ff79c6">and</span> <span style="color:#8be9fd;font-style:italic">len</span>(personIdList) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">id</span> <span style="color:#ff79c6">=</span> equalPersonIdErr()
+</span></span><span style="display:flex;"><span>        add_person(<span style="color:#8be9fd;font-style:italic">id</span>, random<span style="color:#ff79c6">.</span>choice(nameList), random<span style="color:#ff79c6">.</span>randint(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">201</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">id</span> <span style="color:#ff79c6">=</span> personIdNoFoundErr()
+</span></span><span style="display:flex;"><span>        add_person(<span style="color:#8be9fd;font-style:italic">id</span>, random<span style="color:#ff79c6">.</span>choice(nameList), random<span style="color:#ff79c6">.</span>randint(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">201</span>))
+</span></span><span style="display:flex;"><span>        personIdList<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">id</span>)
+</span></span></code></pre></div><p>第二次作业中，我主要完成了与Message和Group相关的指令的随机生成</p>
+<p>第三次作业中，由于新增指令较多，新增的message类型较多，由于时间原因，我列出了测试要点，手动构造测试数据进行测试。</p>
+<p><a href="https://imgtu.com/i/XGKRTH">
+  <img src="https://s1.ax1x.com/2022/05/31/XGKRTH.png" alt="XGKRTH.png">
+
+</a></p>
+<h2 id="关于架构">关于架构</h2>
+<p>本次的架构比较简单，就是按照官方给出的接口实现了要求我们实现的类和异常类。除此之外，为了便于实现图的各种算法，我额外实现了一个并查集类和边节点类。具体的查找最短路，最小生成树的算法部分，由于比较简单，并且没有重复利用，于是我直接在<code>MyNetWork</code>里实现了。</p>
+<p>关于图模型的维护和构建，我在储存数据时均采用<code>id-&gt;Object</code>的<code>HashMap</code>来储存，这样可以比较快的获取目标元素。至于具体到每个类储存什么信息，则和官方给出的JML保持一致即可。</p>
+<h2 id="关于算法性能以及bug修复">关于算法性能以及bug修复</h2>
+<h3 id="第一次作业">第一次作业</h3>
+<h4 id="性能分析">性能分析</h4>
+<p>第一次作业中，时间复杂度可能较高的方法是查询两人是否处于同一联通分支的<code>isCircle</code>方法。我采用了并查集来保证时间复杂度不超出限制。并且增加了路径压缩优化和按秩合并优化，使得复杂度降低到$O(1+log*n)$</p>
+<p>如果没有实现并查集，那么另一个比较危险的指令则是<code>query block sum</code>。在实现了并查集的前提下，可以维护一个记录当前联通分支数量的变量，在每次对并查集进行merge操作时减少1，在进行add操作时增加1，即可实现$O(1)$复杂度的查询。</p>
+<p>最后一个问题是，如果使用了递归方法来维护并查集，那么在面对形如</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1 <span style="color:#ff79c6">-&gt;</span> 2 <span style="color:#ff79c6">-&gt;</span> 3 <span style="color:#ff79c6">...</span> <span style="color:#ff79c6">-&gt;</span> n
+</span></span></code></pre></div><p>这样的超长链时，在链长大约5000时会爆栈，因此需要用循环代替递归来维护并查集</p>
+<h4 id="bug分析">bug分析</h4>
+<p>这次作业没有发现bug，互测房内也没有人成功刀中</p>
+<h3 id="第二次作业">第二次作业</h3>
+<h4 id="性能分析-1">性能分析</h4>
+<p>第二次作业中，时间复杂度可能较高的方法为查询一个group中的总value值、查询group年龄方差和求最小生成树的方法。如果不增加缓存，那么<code>query group value sum</code>指令带来的时间复杂度可以达到$O(n^2)$(n代表group中的人数)，这是非常危险的，因此我在group中增加了一个<code>value sum</code>的属性，在每次增加人、减少人和增加关系的时候更新，这样在查询时就能实现$O(1)$复杂度，在其他时候均摊$O(n)$复杂度。</p>
+<p>对于<code>query group age var</code>指令，我在group中维护一个<code>ageSum</code>属性，在每次增加和减少人员时更新，保存上一次算出的<code>ageVar</code>，并且设置一个类似脏位的属性，在每次有人员变动时置1，若脏位为0，则直接返回上次的计算结果，脏位为1时再重新$O(n)$计算年龄的平均值。</p>
+<p>对于求最小生成树，我使用了Prim算法，并且在判断某条边链接的两点是否已经处于同一个联通分支时，沿用了第一次作业中实现的并查集算法。我将第一次作业中的并查集算法包装成了一个新的工具类，便于复用。</p>
+<h4 id="bug分析-1">bug分析</h4>
+<p>本次作业没有在中测、强测、互测中被发现bug，但是在自测的时候发现了bug。在维护<code>group value sum</code>的时候，在<code>add relation</code>时没有更新<code>group value sum</code>。惊险的是，和我对拍的小伙伴也出现了这个问题，于是这个bug并没有在自己搭建的评测机中测出TAT，而是我在快到作业截止时间时，心血来潮浏览学长的总结博客时发现的。这也体现出对拍的一个缺点。<del>多找些人对拍即可解决(bushi)</del></p>
+<h3 id="第三次作业">第三次作业</h3>
+<p>####　性能分析</p>
+<p>第三次作业中可能比较耗时的指令是<code>send indirect message</code>指令，采用了堆优化的Dijkstra算法实现，复杂度为$O(nlogn)$，在对于其他指令的处理上，时间复杂度不是大问题，反而在正确性上因为细节较多，比较容易出错。</p>
+<h4 id="bug分析-2">bug分析</h4>
+<p>本次作业在自测、中测、强测、互测中均没有被发现bug。由于这次作业没有实现随机数据生成，因此手头的数据不多，没有hack出本房间的两个正确性bug。<del>或许是因为偷懒看到成功率不高就没测</del></p>
+<h2 id="关于ppt中的network拓展">关于PPT中的Network拓展</h2>
+<p>假设出现了几种不同的Person</p>
+<ul>
+<li>Advertiser：持续向外发送产品广告</li>
+<li>Producer：产品生产商，通过Advertiser来销售产品</li>
+<li>Customer：消费者，会关注广告并选择和自己偏好匹配的产品来购买 &ndash; 所谓购买，就是直接通过Advertiser给相应Producer发一个购买消息</li>
+<li>Person：吃瓜群众，不发广告，不买东西，不卖东西</li>
+</ul>
+<p>如此Network可以支持市场营销，并能查询某种商品的销售额和销售路径等 请讨论如何对Network扩展，给出相关接口方法，并选择3个核心业务功能的接口方法撰写JML规格（借鉴所总结的JML规格模式）</p>
+<hr>
+<ul>
+<li>
+<p>新增Person的子类：</p>
+<ul>
+<li><code>Advertiser</code>：包含属性：商品列表</li>
+<li><code>Producer</code>：包含属性：可生产的产品列表</li>
+<li><code>Customer</code>:包含属性：偏好的产品列表</li>
+</ul>
+</li>
+<li>
+<p>新增Message的子类：</p>
+<ul>
+<li><code>AdvertiseMessage</code>:包含信息：商品信息，销售者</li>
+<li><code>ProductMessage</code>：包含信息：商品信息，生产者，广告者</li>
+<li><code>PurchaseMessage</code>：包含信息：商品信息，购买者，广告者</li>
+</ul>
+</li>
+<li>
+<p>新增Product类，属性包括：商品的id、名称，价格，销售额，销售路径、生产者</p>
+</li>
+<li>
+<p>新增核心功能的接口方法：</p>
+<ul>
+<li>
+<p>生产产品 <code>produce</code>:</p>
+<ul>
+<li>生产者生产一个产品，加入自身的产品列表中</li>
+<li>生产者<code>Producer</code>向 广告者<code>Advertiser</code>发送一个 <code>ProductMessage</code>，包含的信息有产品信息，消息发送者，消息接收者</li>
+</ul>
+</li>
+<li>
+<p>发送广告<code>advertise</code></p>
+<ul>
+<li>Advertiser向所有与之有关的Person发送<code>AdvertiseMessage</code>,并且向所有包含此Advertiser的群发送<code>AdvertiseMessage</code>。</li>
+</ul>
+</li>
+<li>
+<p>购买产品Purchase</p>
+<ul>
+<li>可包含在<code>sendMessage</code>中</li>
+<li><code>Costomer</code>向关联的<code>Advertiser</code>发送购买信息，并将<code>money</code>转给<code>Producer</code>
+发送广告的JML</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">// Network.java
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">/*@ public normal_behavior
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ requires contains(advertiserId) &amp;&amp; (getPerson(advertiserId) instanceof Advertiser);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ requires containsMessage(MessageId)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ assignable people[*].messages;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	\old(people[i].messsages.length) == people[i].messsages.length - 1);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\forall int j; 0 &lt;= j &amp;&amp; j &lt;= \old(people[i].messages.length);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\exists int k; 0 &lt;= k &amp;&amp; k &lt;= people[i].messages.length; 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].messages[j] == people[i].messages[k])));
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\forall int j; 0 &lt;= j &amp;&amp; j &lt;= getPerson(advertiserId).messages.length;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\exists int k; 0 &lt;= k &amp;&amp; k &lt;= people[i].messages.length; 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	getPerson(advertiserId).messages[j] == people[i].messages[k])));
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures  (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\forall int j; 0 &lt;= j &amp;&amp; j &lt;= getPerson(advertiserId).messages.length;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\exists int k; 0 &lt;= k &amp;&amp; k &lt;= people[i].messages.length; 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	getPerson(advertiserId).messages[j] == people[i].messages[k])));
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures ( (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\exists int j; 0 &lt;= j &amp;&amp; j &lt;= people[i].messages.length; 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	getPerson(advertiserId).messages[j] == \old(getMessage(messageId))));)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ also
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ public exceptional_behavior
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ signals (PersonIdNotFoundException e) !contains(advertiserId);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ signals (AdvertiserIdNotFoundException e) contains(advertiserId) &amp;&amp; 
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	                                !(advertiserId) instanceof Advertiser);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ signals (MessageNotFoundException e) !containsMessage(messageId);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @*/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">advertise</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> advertiserId<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> MessageId<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">throw</span> PersonIdNotFoundException<span style="color:#ff79c6">,</span> AdvertiserIdNotFoundException<span style="color:#ff79c6">,</span> MessageIdNotFoundExceprion<span style="color:#ff79c6">;</span>
+</span></span></code></pre></div><p>生产产品的JML：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#6272a4">/*@ public normal_behavior
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ requires contains(producerId) &amp;&amp; (getPerson(producerId) instanceof Producer);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ assignable getProducer(producerId).product;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures getProducer(producerId).product.length ==
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @         \old(getProducer(producerId).product.length) + 1;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures for(int i; 0 &lt;= i &amp;&amp; i &lt;= getProducer(producerId).product.length; \exist(getProducer(producerId).product[i] == product))
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ also
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ public exceptional_behavior
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ signals (PersonIdNotFoundException e) !contains(producerId);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ signals (ClassTypeException e) !(getPerson(producerId) instanceof Producer);
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @*/</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">produce</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> producerId<span style="color:#ff79c6">,</span> Product product<span style="color:#ff79c6">);</span>
+</span></span></code></pre></div><p>购买产品的JML</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">//仅包含sendMessage的新增功能
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#6272a4">/* @ ensures (\old(getMessage(id)) instanceof PurchaseMessage) ==&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @         (\old(getMessage(id)).getPerson1().getMoney() ==
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @         \old(getMessage(id).getPerson1().getMoney()) - ((PurchaseMessage)\old(getMessage(id))).getMoney() &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @         \old(getMessage(id)).getPerson2().getMoney() ==
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @         \old(getMessage(id).getPerson2().getMoney()) + ((PurchaseMessage)\old(getMessage(id))).getMoney());
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @ ensures (!(\old(getMessage(id)) instanceof PurchaseMessage) &amp;&amp; !(\old(getMessage(id)) instanceof RedEnvelopeMessage) ) ==&gt; (\not_assigned(people[*].money));
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @*/</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">sendMessage</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> id<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span>
+</span></span><span style="display:flex;"><span>            RelationNotFoundException<span style="color:#ff79c6">,</span> MessageIdNotFoundException<span style="color:#ff79c6">,</span> PersonIdNotFoundException<span style="color:#ff79c6">;</span>
+</span></span></code></pre></div><h2 id="心得体会">心得体会</h2>
+<p>本次作业极大程度的磨练了我的耐心。这次作业的实现细节繁多，需要足够的细心才能准确的完成，因此我不得不耐下心来，一行一行的阅读满屏的JML，虽然有时可以通过方法名猜测这个方法的功能，但是最终在检查时，还是需要不跳过的读完每一行，才能检查出有没有问题。</p>
+<p>这也是我体会到的JML的优点，也就是传递设计要求的准确性，如果课程组不使用JML来传递设计细节，而是用自然语言来描述每个方法的功能，那一定会有很多没有传达清楚的地方。JML虽然细节多，比较长，但是它精准无误的传达了所有的设计要求，助教们回答同学们的问题时，大多可以直接回复：请参照JML。</p>
+<p>至此全部互测已经结束，OO之旅正在接近尾声，希望在最后一个单元中也能够顺利完成任务！</p>
+<p>特别鸣谢一起完成评测机的小伙伴：StyWang同学</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2022/03/16/BUAA-OO-Unit1-ExpressionExtent/" data-toggle="tooltip" data-placement="top" title="BUAA-OO-Unit1-ExpressionExtent">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/object-oriented" title="object-oriented">
+                            object-oriented
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://stywang.github.io/">StyWang</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:1274029432@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/Arthuring">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Arthuring&#39;s Blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Arthuring&#39;s Blog 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+</body>
+</html>

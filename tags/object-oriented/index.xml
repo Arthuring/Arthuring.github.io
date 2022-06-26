@@ -25,5 +25,14 @@
       <description>第一单元作业总结&amp;ndash;表达式展开 一、总体情况 三次作业总共的BNF描述如下 $$ \begin{aligned} Expr &amp;amp;\rightarrow [+|-]Term|Expr[+|-]Term\newline Term &amp;amp;\rightarrow [+|-]Factor|Term*Factor\newline Factor &amp;amp;\rightarrow ConstFactor|ExprFactor|VarFactor\newline ConstFactor &amp;amp;\rightarrow SignedInteger\newline ExprFactor &amp;amp;\rightarrow (Expr)[exp]\newline VarFactor &amp;amp;\rightarrow PowerFactor|TriFactor|SumFactor|FuncCall\newline TriFactor &amp;amp;\rightarrow sin(Factor)[exp]|cos(Factor)[exp]\newline exp &amp;amp;\rightarrow ** [+] SignedInteger\newline SignedInteger &amp;amp;\rightarrow</description>
     </item>
     
+    <item>
+      <title>BUAA-OO-Unit3-CommunicationNet</title>
+      <link>https://Arthuring.github.io/2022/06/2/BUAA-OO-Unit3-CommunicationNet/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://Arthuring.github.io/2022/06/2/BUAA-OO-Unit3-CommunicationNet/</guid>
+      <description>第三单元作业总结&amp;ndash;JML与社交网络实现 关于基于JML测试 本单元指导书中推荐的测试方法是进行JUnit测试。在简单尝试后，我感觉J</description>
+    </item>
+    
   </channel>
 </rss>
