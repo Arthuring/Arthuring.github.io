@@ -120,6 +120,10 @@
                     
                         
                         <li>
+                            <a href="/categories/co">co</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/oo">oo</a>
                         </li>
                         
@@ -237,15 +241,15 @@
 <p>数据生成和测试方面，我和小伙伴合作编写了数据生成脚本和评测机，并进行了对拍。</p>
 <p>第一次作业中，我主要完成了第一次作业中所有指令的有策略的随机生成部分，可以实现调整生成异常指令的概率，并且在每次更改信息后，通过生成查询指令对状态进行查询。</p>
 <p>例如</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#ff79c6">def</span> <span style="color:#50fa7b">addPersonPackaged</span>(canErr): <span style="color:#6272a4">#canErr参数控制此次生成指令是否可以异常</span>
-</span></span><span style="display:flex;"><span>    ifErr <span style="color:#ff79c6">=</span> random<span style="color:#ff79c6">.</span>randint(<span style="color:#bd93f9">0</span>,<span style="color:#bd93f9">100</span>)<span style="color:#ff79c6">%</span>errHappenRate <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span> <span style="color:#6272a4">#errHappenRate参数控制异常发生的概率</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span>(ifErr <span style="color:#ff79c6">and</span> canErr <span style="color:#ff79c6">and</span> <span style="color:#8be9fd;font-style:italic">len</span>(personIdList) <span style="color:#ff79c6">&gt;</span> <span style="color:#bd93f9">0</span>):
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">id</span> <span style="color:#ff79c6">=</span> equalPersonIdErr()
-</span></span><span style="display:flex;"><span>        add_person(<span style="color:#8be9fd;font-style:italic">id</span>, random<span style="color:#ff79c6">.</span>choice(nameList), random<span style="color:#ff79c6">.</span>randint(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">201</span>))
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">else</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">id</span> <span style="color:#ff79c6">=</span> personIdNoFoundErr()
-</span></span><span style="display:flex;"><span>        add_person(<span style="color:#8be9fd;font-style:italic">id</span>, random<span style="color:#ff79c6">.</span>choice(nameList), random<span style="color:#ff79c6">.</span>randint(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">201</span>))
-</span></span><span style="display:flex;"><span>        personIdList<span style="color:#ff79c6">.</span>append(<span style="color:#8be9fd;font-style:italic">id</span>)
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">addPersonPackaged</span><span style="color:#111">(</span><span style="color:#111">canErr</span><span style="color:#111">):</span> <span style="color:#75715e">#canErr参数控制此次生成指令是否可以异常</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">ifErr</span> <span style="color:#f92672">=</span> <span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">randint</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span><span style="color:#ae81ff">100</span><span style="color:#111">)</span><span style="color:#f92672">%</span><span style="color:#111">errHappenRate</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e">#errHappenRate参数控制异常发生的概率</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span><span style="color:#111">(</span><span style="color:#111">ifErr</span> <span style="color:#f92672">and</span> <span style="color:#111">canErr</span> <span style="color:#f92672">and</span> <span style="color:#111">len</span><span style="color:#111">(</span><span style="color:#111">personIdList</span><span style="color:#111">)</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">id</span> <span style="color:#f92672">=</span> <span style="color:#111">equalPersonIdErr</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">add_person</span><span style="color:#111">(</span><span style="color:#111">id</span><span style="color:#111">,</span> <span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">choice</span><span style="color:#111">(</span><span style="color:#111">nameList</span><span style="color:#111">),</span> <span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">randint</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#ae81ff">201</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">id</span> <span style="color:#f92672">=</span> <span style="color:#111">personIdNoFoundErr</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">add_person</span><span style="color:#111">(</span><span style="color:#111">id</span><span style="color:#111">,</span> <span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">choice</span><span style="color:#111">(</span><span style="color:#111">nameList</span><span style="color:#111">),</span> <span style="color:#111">random</span><span style="color:#f92672">.</span><span style="color:#111">randint</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#ae81ff">201</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">personIdList</span><span style="color:#f92672">.</span><span style="color:#111">append</span><span style="color:#111">(</span><span style="color:#111">id</span><span style="color:#111">)</span>
 </span></span></code></pre></div><p>第二次作业中，我主要完成了与Message和Group相关的指令的随机生成</p>
 <p>第三次作业中，由于新增指令较多，新增的message类型较多，由于时间原因，我列出了测试要点，手动构造测试数据进行测试。</p>
 <p><a href="https://imgtu.com/i/XGKRTH">
@@ -261,7 +265,7 @@
 <p>第一次作业中，时间复杂度可能较高的方法是查询两人是否处于同一联通分支的<code>isCircle</code>方法。我采用了并查集来保证时间复杂度不超出限制。并且增加了路径压缩优化和按秩合并优化，使得复杂度降低到$O(1+log*n)$</p>
 <p>如果没有实现并查集，那么另一个比较危险的指令则是<code>query block sum</code>。在实现了并查集的前提下，可以维护一个记录当前联通分支数量的变量，在每次对并查集进行merge操作时减少1，在进行add操作时增加1，即可实现$O(1)$复杂度的查询。</p>
 <p>最后一个问题是，如果使用了递归方法来维护并查集，那么在面对形如</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>1 <span style="color:#ff79c6">-&gt;</span> 2 <span style="color:#ff79c6">-&gt;</span> 3 <span style="color:#ff79c6">...</span> <span style="color:#ff79c6">-&gt;</span> n
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#111">1</span> <span style="color:#f92672">-&gt;</span> <span style="color:#111">2</span> <span style="color:#f92672">-&gt;</span> <span style="color:#111">3</span> <span style="color:#f92672">...</span> <span style="color:#f92672">-&gt;</span> <span style="color:#111">n</span>
 </span></span></code></pre></div><p>这样的超长链时，在链长大约5000时会爆栈，因此需要用循环代替递归来维护并查集</p>
 <h4 id="bug分析">bug分析</h4>
 <p>这次作业没有发现bug，互测房内也没有人成功刀中</p>
@@ -334,67 +338,67 @@
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">// Network.java
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	
-</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">/*@ public normal_behavior
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ requires contains(advertiserId) &amp;&amp; (getPerson(advertiserId) instanceof Advertiser);
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ requires containsMessage(MessageId)
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ assignable people[*].messages;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	\old(people[i].messsages.length) == people[i].messsages.length - 1);
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\forall int j; 0 &lt;= j &amp;&amp; j &lt;= \old(people[i].messages.length);
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\exists int k; 0 &lt;= k &amp;&amp; k &lt;= people[i].messages.length; 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].messages[j] == people[i].messages[k])));
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\forall int j; 0 &lt;= j &amp;&amp; j &lt;= getPerson(advertiserId).messages.length;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\exists int k; 0 &lt;= k &amp;&amp; k &lt;= people[i].messages.length; 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	getPerson(advertiserId).messages[j] == people[i].messages[k])));
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures  (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\forall int j; 0 &lt;= j &amp;&amp; j &lt;= getPerson(advertiserId).messages.length;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\exists int k; 0 &lt;= k &amp;&amp; k &lt;= people[i].messages.length; 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	getPerson(advertiserId).messages[j] == people[i].messages[k])));
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures ( (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	(\exists int j; 0 &lt;= j &amp;&amp; j &lt;= people[i].messages.length; 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	getPerson(advertiserId).messages[j] == \old(getMessage(messageId))));)
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ also
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ public exceptional_behavior
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ signals (PersonIdNotFoundException e) !contains(advertiserId);
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ signals (AdvertiserIdNotFoundException e) contains(advertiserId) &amp;&amp; 
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ 	                                !(advertiserId) instanceof Advertiser);
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ signals (MessageNotFoundException e) !containsMessage(messageId);
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @*/</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Network.java
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">/*@ public normal_behavior
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ requires contains(advertiserId) &amp;&amp; (getPerson(advertiserId) instanceof Advertiser);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ requires containsMessage(MessageId)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ assignable people[*].messages;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ ensures (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	\old(people[i].messsages.length) == people[i].messsages.length - 1);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ ensures (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	(\forall int j; 0 &lt;= j &amp;&amp; j &lt;= \old(people[i].messages.length);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	(\exists int k; 0 &lt;= k &amp;&amp; k &lt;= people[i].messages.length; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	people[i].messages[j] == people[i].messages[k])));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ ensures (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	(\forall int j; 0 &lt;= j &amp;&amp; j &lt;= getPerson(advertiserId).messages.length;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	(\exists int k; 0 &lt;= k &amp;&amp; k &lt;= people[i].messages.length; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	getPerson(advertiserId).messages[j] == people[i].messages[k])));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ ensures  (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	(\forall int j; 0 &lt;= j &amp;&amp; j &lt;= getPerson(advertiserId).messages.length;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	(\exists int k; 0 &lt;= k &amp;&amp; k &lt;= people[i].messages.length; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	getPerson(advertiserId).messages[j] == people[i].messages[k])));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ ensures ( (\forall int i; 0 &lt;= i &amp;&amp; i &lt;= people.length &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	people[i].isLinked(getPerson(advertiserId)) &amp;&amp; people[i].getId() != advertiserId; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	(\exists int j; 0 &lt;= j &amp;&amp; j &lt;= people[i].messages.length; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	getPerson(advertiserId).messages[j] == \old(getMessage(messageId))));)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ also
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ public exceptional_behavior
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ signals (PersonIdNotFoundException e) !contains(advertiserId);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ signals (AdvertiserIdNotFoundException e) contains(advertiserId) &amp;&amp; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ 	                                !(advertiserId) instanceof Advertiser);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ signals (MessageNotFoundException e) !containsMessage(messageId);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @*/</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">advertise</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> advertiserId<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> MessageId<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">throw</span> PersonIdNotFoundException<span style="color:#ff79c6">,</span> AdvertiserIdNotFoundException<span style="color:#ff79c6">,</span> MessageIdNotFoundExceprion<span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">advertise</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">advertiserId</span><span style="color:#f92672">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">MessageId</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">throw</span> <span style="color:#111">PersonIdNotFoundException</span><span style="color:#f92672">,</span> <span style="color:#111">AdvertiserIdNotFoundException</span><span style="color:#f92672">,</span> <span style="color:#111">MessageIdNotFoundExceprion</span><span style="color:#f92672">;</span>
 </span></span></code></pre></div><p>生产产品的JML：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#6272a4">/*@ public normal_behavior
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ requires contains(producerId) &amp;&amp; (getPerson(producerId) instanceof Producer);
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ assignable getProducer(producerId).product;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures getProducer(producerId).product.length ==
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @         \old(getProducer(producerId).product.length) + 1;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ ensures for(int i; 0 &lt;= i &amp;&amp; i &lt;= getProducer(producerId).product.length; \exist(getProducer(producerId).product[i] == product))
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ also
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ public exceptional_behavior
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ signals (PersonIdNotFoundException e) !contains(producerId);
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @ signals (ClassTypeException e) !(getPerson(producerId) instanceof Producer);
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">      @*/</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">produce</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> producerId<span style="color:#ff79c6">,</span> Product product<span style="color:#ff79c6">);</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#75715e">/*@ public normal_behavior
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ requires contains(producerId) &amp;&amp; (getPerson(producerId) instanceof Producer);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ assignable getProducer(producerId).product;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ ensures getProducer(producerId).product.length ==
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @         \old(getProducer(producerId).product.length) + 1;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ ensures for(int i; 0 &lt;= i &amp;&amp; i &lt;= getProducer(producerId).product.length; \exist(getProducer(producerId).product[i] == product))
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ also
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ public exceptional_behavior
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ signals (PersonIdNotFoundException e) !contains(producerId);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @ signals (ClassTypeException e) !(getPerson(producerId) instanceof Producer);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">      @*/</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">produce</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">producerId</span><span style="color:#f92672">,</span> <span style="color:#111">Product</span> <span style="color:#111">product</span><span style="color:#f92672">);</span>
 </span></span></code></pre></div><p>购买产品的JML</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#6272a4">//仅包含sendMessage的新增功能
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#6272a4">/* @ ensures (\old(getMessage(id)) instanceof PurchaseMessage) ==&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @         (\old(getMessage(id)).getPerson1().getMoney() ==
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @         \old(getMessage(id).getPerson1().getMoney()) - ((PurchaseMessage)\old(getMessage(id))).getMoney() &amp;&amp;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @         \old(getMessage(id)).getPerson2().getMoney() ==
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @         \old(getMessage(id).getPerson2().getMoney()) + ((PurchaseMessage)\old(getMessage(id))).getMoney());
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @ ensures (!(\old(getMessage(id)) instanceof PurchaseMessage) &amp;&amp; !(\old(getMessage(id)) instanceof RedEnvelopeMessage) ) ==&gt; (\not_assigned(people[*].money));
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4">   @*/</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span>  <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">sendMessage</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> id<span style="color:#ff79c6">)</span> <span style="color:#8be9fd;font-style:italic">throws</span>
-</span></span><span style="display:flex;"><span>            RelationNotFoundException<span style="color:#ff79c6">,</span> MessageIdNotFoundException<span style="color:#ff79c6">,</span> PersonIdNotFoundException<span style="color:#ff79c6">;</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//仅包含sendMessage的新增功能
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">/* @ ensures (\old(getMessage(id)) instanceof PurchaseMessage) ==&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   @         (\old(getMessage(id)).getPerson1().getMoney() ==
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   @         \old(getMessage(id).getPerson1().getMoney()) - ((PurchaseMessage)\old(getMessage(id))).getMoney() &amp;&amp;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   @         \old(getMessage(id)).getPerson2().getMoney() ==
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   @         \old(getMessage(id).getPerson2().getMoney()) + ((PurchaseMessage)\old(getMessage(id))).getMoney());
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   @ ensures (!(\old(getMessage(id)) instanceof PurchaseMessage) &amp;&amp; !(\old(getMessage(id)) instanceof RedEnvelopeMessage) ) ==&gt; (\not_assigned(people[*].money));
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">   @*/</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span>  <span style="color:#00a8c8">void</span> <span style="color:#75af00">sendMessage</span><span style="color:#f92672">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">id</span><span style="color:#f92672">)</span> <span style="color:#00a8c8">throws</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">RelationNotFoundException</span><span style="color:#f92672">,</span> <span style="color:#111">MessageIdNotFoundException</span><span style="color:#f92672">,</span> <span style="color:#111">PersonIdNotFoundException</span><span style="color:#f92672">;</span>
 </span></span></code></pre></div><h2 id="心得体会">心得体会</h2>
 <p>本次作业极大程度的磨练了我的耐心。这次作业的实现细节繁多，需要足够的细心才能准确的完成，因此我不得不耐下心来，一行一行的阅读满屏的JML，虽然有时可以通过方法名猜测这个方法的功能，但是最终在检查时，还是需要不跳过的读完每一行，才能检查出有没有问题。</p>
 <p>这也是我体会到的JML的优点，也就是传递设计要求的准确性，如果课程组不使用JML来传递设计细节，而是用自然语言来描述每个方法的功能，那一定会有很多没有传达清楚的地方。JML虽然细节多，比较长，但是它精准无误的传达了所有的设计要求，助教们回答同学们的问题时，大多可以直接回复：请参照JML。</p>
@@ -452,6 +456,8 @@
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                        
+                        
                         
                         
                         

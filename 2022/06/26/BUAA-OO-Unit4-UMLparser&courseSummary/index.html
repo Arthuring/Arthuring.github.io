@@ -120,6 +120,10 @@
                     
                         
                         <li>
+                            <a href="/categories/co">co</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/oo">oo</a>
                         </li>
                         
@@ -260,38 +264,38 @@
 <p>本次作业是添加了关于UML图合法性的检查，与前几次不同的是，这次作业的输入中有可能有循环继承的情况，并且由于我之前的<code>addSuperInterface</code>和<code>addInterface</code>都是通过递归实现的，如果含有循环继承，那么就会出现无穷递归的问题，因此在这两个方法中需要稍作修改，维护一个变量将已经访问过的class或interface标记，以防被重复访问导致无穷递归。</p>
 <p>同时，为了避免<code>MyImplementation</code>类过长，本次作业添加的关于规则检查类的实现，都放在了Checker当中。</p>
 <p>最终的读入处理顺序如下</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">loop1</span><span style="color:#ff79c6">(</span>UmlElement element<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>    element <span style="color:#ff79c6">instanceof</span> UmlClass
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlInterface
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlStateMachine
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlCollaboration
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlAssociation
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">loop1</span><span style="color:#f92672">(</span><span style="color:#111">UmlElement</span> <span style="color:#111">element</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlClass</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlInterface</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlStateMachine</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlCollaboration</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlAssociation</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">loop2</span><span style="color:#ff79c6">(</span>UmlElement element<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlOperation
-</span></span><span style="display:flex;"><span>    element <span style="color:#ff79c6">instanceof</span> UmlAttribute
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlRegion
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlLifeline
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlEndpoint
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlAssociationEnd
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">loop2</span><span style="color:#f92672">(</span><span style="color:#111">UmlElement</span> <span style="color:#111">element</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlOperation</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlAttribute</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlRegion</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlLifeline</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlEndpoint</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlAssociationEnd</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">loop3</span><span style="color:#ff79c6">(</span>UmlElement element<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlGeneralization
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlParameter
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlPseudostate <span style="color:#ff79c6">||</span>element <span style="color:#ff79c6">instanceof</span> UmlState <span style="color:#ff79c6">||</span>element <span style="color:#ff79c6">instanceof</span> UmlFinalState
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlMessage
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">loop3</span><span style="color:#f92672">(</span><span style="color:#111">UmlElement</span> <span style="color:#111">element</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlGeneralization</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlParameter</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlPseudostate</span> <span style="color:#f92672">||</span><span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlState</span> <span style="color:#f92672">||</span><span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlFinalState</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlMessage</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">loop4</span><span style="color:#ff79c6">(</span>UmlElement element<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlInterfaceRealization
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlTransition
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">loop4</span><span style="color:#f92672">(</span><span style="color:#111">UmlElement</span> <span style="color:#111">element</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlInterfaceRealization</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlTransition</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">loop5</span><span style="color:#ff79c6">(</span>UmlElement element<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlEvent
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">loop5</span><span style="color:#f92672">(</span><span style="color:#111">UmlElement</span> <span style="color:#111">element</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">element</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">UmlEvent</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
 </span></span></code></pre></div><h2 id="二四个单元中架构设计思维以及oo方法理解演进">二、四个单元中架构设计思维以及OO方法理解演进</h2>
 <h3 id="21-第一单元">2.1 第一单元</h3>
 <p>第一单元的主要架构设计思维是层次化，将表达式中的元素进行分层抽象，对具有某些共同性质的元素统一编写方法，并且要求这个抽象可以尽量经得起多次迭代增加需求的考验。这个单元最重要的任务就是对表达式进行层次化的抽象和储存，找到元素之间的共性，比如常熟因子和幂函数因子实质上可以统一成 <code>常数*x**指数</code>的形式，各种复杂的包含三角因子的项可以统一成<code>常数*HashMap&lt;三角因子/x,指数&gt;</code>的形式。如果建立好了层次化模型，并且将每个层次需要完成的工作都设计好，那么在需求增加的时候，可以几乎不用改变架构，即可取得不错的效果。</p>
@@ -413,6 +417,8 @@
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                        
+                        
                         
                         
                         

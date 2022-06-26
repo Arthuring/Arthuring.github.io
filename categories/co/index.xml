@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CO on Arthuring&#39;s Blog</title>
+    <link>https://Arthuring.github.io/categories/co/</link>
+    <description>Recent content in CO on Arthuring&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Dec 2021 11:00:00 +0000</lastBuildDate><atom:link href="https://Arthuring.github.io/categories/co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BUAA-CO-条件写类指令处理方法</title>
+      <link>https://Arthuring.github.io/2021/12/08/BUAA-CO-ConditionalWriting/</link>
+      <pubDate>Wed, 08 Dec 2021 11:00:00 +0000</pubDate>
+      
+      <guid>https://Arthuring.github.io/2021/12/08/BUAA-CO-ConditionalWriting/</guid>
+      <description>条件写类指令处理方法 采用谨慎转发策略，防止在写和不写之间选择的指令产生错误转发 assign D_MFRD1Sel = (E_A != 5&amp;#39;b0 &amp;amp;&amp;amp; D_rs_ad == E_A &amp;amp;&amp;amp; E_Tnew == 0) ? `E_TO_D : (M_A != 5&amp;#39;b0 &amp;amp;&amp;amp; D_rs_ad == M_A &amp;amp;&amp;amp; M_Tnew == 0) ? `M_TO_D :</description>
+    </item>
+    
+  </channel>
+</rss>

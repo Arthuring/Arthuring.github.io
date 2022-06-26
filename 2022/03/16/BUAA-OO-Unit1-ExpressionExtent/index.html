@@ -120,6 +120,10 @@
                     
                         
                         <li>
+                            <a href="/categories/co">co</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/oo">oo</a>
                         </li>
                         
@@ -288,20 +292,20 @@ $$
 </p>
 <h4 id="211token类分解字符串">2.1.1Token类分解字符串</h4>
 <p>可以发现，这次作业中的输入可以分为一系列不可再分的基本单元，例如带符号数字<code>NUM</code>，幂运算符号<code>“**”EXP</code>等，如果按照单个字符扫描的方法，一个个字符扫描，就会把这些本来具有整体意义的符号拆开，增加处理难度。因此我选择用正则表达式整体识别这些式子中不可再分的部分。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> String ADD_P <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;(?&lt;ADD&gt;\\s*\\+\\s*)&#34;</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> String SUB_P <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;(?&lt;SUB&gt;\\s*-\\s*)&#34;</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> String NUM_P <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;(?&lt;NUM&gt;\\s*([+-]?)(\\d+)\\s*)&#34;</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">...</span><span style="color:#6272a4">//一些基本单元的正则表达式
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd;font-style:italic">final</span> Pattern TOKEN_PATTERN <span style="color:#ff79c6">=</span> Pattern<span style="color:#ff79c6">.</span><span style="color:#50fa7b">compile</span><span style="color:#ff79c6">(</span>ADD_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> SUB_P <span style="color:#ff79c6">+</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> EXP_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> NUM_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> LP_P <span style="color:#ff79c6">+</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> RP_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> VAR_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> MULT_P <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;|&#34;</span> <span style="color:#ff79c6">+</span> ERR_P<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">//最终正则表达式
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">private</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">final</span> <span style="color:#111">String</span> <span style="color:#111">ADD_P</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;(?&lt;ADD&gt;\\s*\\+\\s*)&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">final</span> <span style="color:#111">String</span> <span style="color:#111">SUB_P</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;(?&lt;SUB&gt;\\s*-\\s*)&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">final</span> <span style="color:#111">String</span> <span style="color:#111">NUM_P</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;(?&lt;NUM&gt;\\s*([+-]?)(\\d+)\\s*)&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span><span style="color:#75715e">//一些基本单元的正则表达式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">final</span> <span style="color:#111">Pattern</span> <span style="color:#111">TOKEN_PATTERN</span> <span style="color:#f92672">=</span> <span style="color:#111">Pattern</span><span style="color:#f92672">.</span><span style="color:#75af00">compile</span><span style="color:#f92672">(</span><span style="color:#111">ADD_P</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;|&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">SUB_P</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#d88200">&#34;|&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">EXP_P</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;|&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">NUM_P</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;|&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">LP_P</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#d88200">&#34;|&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">RP_P</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;|&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">VAR_P</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;|&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">MULT_P</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;|&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">ERR_P</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">//最终正则表达式
 </span></span></span></code></pre></div><p><strong>Token类</strong>类似于Training中递归下降法代码中的Lexer类，起到扫描字符串的作用。Token类第一个功能是将输入的字符串识别式子中最小的基本单元，将他们用<code>ArrayList</code>容器存储起来，从而保存他们的顺序
 为了更好的表示这些基本单元，可以用<code>enum</code>定义<code>Type</code>，增加代码的可读性，并且与字符串类做区分。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">enum</span> Type <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>        ADD<span style="color:#ff79c6">,</span> SUB<span style="color:#ff79c6">,</span> MULT<span style="color:#ff79c6">,</span> NUM<span style="color:#ff79c6">,</span> LP<span style="color:#ff79c6">,</span> RP<span style="color:#ff79c6">,</span> VAR<span style="color:#ff79c6">,</span> EXP ···
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">enum</span> <span style="color:#111">Type</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">ADD</span><span style="color:#f92672">,</span> <span style="color:#111">SUB</span><span style="color:#f92672">,</span> <span style="color:#111">MULT</span><span style="color:#f92672">,</span> <span style="color:#111">NUM</span><span style="color:#f92672">,</span> <span style="color:#111">LP</span><span style="color:#f92672">,</span> <span style="color:#111">RP</span><span style="color:#f92672">,</span> <span style="color:#111">VAR</span><span style="color:#f92672">,</span> <span style="color:#111">EXP</span> <span style="color:#960050;background-color:#1e0010">···</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span></code></pre></div><p>递归下降法需要完成从左向右扫描输入序列，由于现在输入流就存在Token类，其自身也能完成这个工作。需要实现记录当前扫描的位置，获取当前位置的符号种类和具体信息，并且可以让其继续扫描这三个功能。
 
   <img src="/img/src/TokenUML.png" alt="ParserUML">
@@ -1016,6 +1020,11 @@ g(x, x<strong>2)
                 <hr>
                 <ul class="pager">
                     
+                    <li class="previous">
+                        <a href="/2021/12/08/BUAA-CO-ConditionalWriting/" data-toggle="tooltip" data-placement="top" title="BUAA-CO-条件写类指令处理方法">&larr;
+                            Previous Post</a>
+                    </li>
+                    
                     
                     <li class="next">
                         <a href="/2022/04/30/BUAA-OO-Unit2-Elevator/" data-toggle="tooltip" data-placement="top" title="BUAA-OO-Unit2-Elevator ">Next
@@ -1056,6 +1065,8 @@ g(x, x<strong>2)
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                        
+                        
                         
                         
                         

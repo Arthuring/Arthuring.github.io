@@ -120,6 +120,10 @@
                     
                         
                         <li>
+                            <a href="/categories/co">co</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/oo">oo</a>
                         </li>
                         
@@ -325,15 +329,15 @@ $$
 <p>对于程序结束的处理，我参考了实验课的Request Checker类，通过查收任务的方式来结束程序。当查收到的任务数量等于收到的请求数量时，调度器向所有电梯发出结束请求，电梯收到结束请求后，结束线程。</p>
 <h3 id="5量子电梯">5、量子电梯</h3>
 <p>参考了上一届学长的博客，实现了量子电梯优化性能。 量子电梯在实现上比较简单，只需要转换一下思维方式，正常情况是电梯先发出日志信息，再执行sleep，比如已知到达某一层楼，只有再经过一定时间才能到达下一层，而量子电梯就是将这个过程反过来，先等待一定时间，再根据等待后的情况决定电梯下一步的日志信息，例如在开门之后，先等待电梯运行一层的时间，如果没有请求在这个时间内到达，那么电梯瞬移到下一楼层，如果有请求到达，那么可以瞬间开门</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> String close <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;CLOSE-&#34;</span> <span style="color:#ff79c6">+</span> elevator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">currentPosition</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">getBuilding</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">+</span>
-</span></span><span style="display:flex;"><span>                        <span style="color:#f1fa8c">&#34;-&#34;</span> <span style="color:#ff79c6">+</span> elevator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">currentPosition</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">getFloor</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;-&#34;</span> <span style="color:#ff79c6">+</span> elevator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">id</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>                OutputThread<span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>close<span style="color:#ff79c6">);</span><span style="color:#6272a4">//电梯关门
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>elevator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">strategy</span> <span style="color:#ff79c6">instanceof</span> LookStrategyVertical<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                    sleep<span style="color:#ff79c6">(</span>elevator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">speed</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>elevator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">strategy</span> <span style="color:#ff79c6">instanceof</span> LookStrategyHorizontal<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
-</span></span><span style="display:flex;"><span>                    sleep<span style="color:#ff79c6">(</span>elevator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">speed</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">}</span><span style="color:#6272a4">//等待移动一层楼的时间
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>                elevator<span style="color:#ff79c6">.</span><span style="color:#50fa7b">status</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> Waiting<span style="color:#ff79c6">(</span><span style="color:#ff79c6">false</span><span style="color:#ff79c6">);</span><span style="color:#6272a4">//跳转到决策状态，决定电梯下一步是开门还是运行到下一层
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#111">String</span> <span style="color:#111">close</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;CLOSE-&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">elevator</span><span style="color:#f92672">.</span><span style="color:#75af00">currentPosition</span><span style="color:#f92672">.</span><span style="color:#75af00">getBuilding</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                        <span style="color:#d88200">&#34;-&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">elevator</span><span style="color:#f92672">.</span><span style="color:#75af00">currentPosition</span><span style="color:#f92672">.</span><span style="color:#75af00">getFloor</span><span style="color:#f92672">()</span> <span style="color:#f92672">+</span> <span style="color:#d88200">&#34;-&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">elevator</span><span style="color:#f92672">.</span><span style="color:#75af00">id</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">OutputThread</span><span style="color:#f92672">.</span><span style="color:#75af00">println</span><span style="color:#f92672">(</span><span style="color:#111">close</span><span style="color:#f92672">);</span><span style="color:#75715e">//电梯关门
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">elevator</span><span style="color:#f92672">.</span><span style="color:#75af00">strategy</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">LookStrategyVertical</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">sleep</span><span style="color:#f92672">(</span><span style="color:#111">elevator</span><span style="color:#f92672">.</span><span style="color:#75af00">speed</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span> <span style="color:#00a8c8">else</span> <span style="color:#00a8c8">if</span> <span style="color:#f92672">(</span><span style="color:#111">elevator</span><span style="color:#f92672">.</span><span style="color:#75af00">strategy</span> <span style="color:#00a8c8">instanceof</span> <span style="color:#111">LookStrategyHorizontal</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">sleep</span><span style="color:#f92672">(</span><span style="color:#111">elevator</span><span style="color:#f92672">.</span><span style="color:#75af00">speed</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">}</span><span style="color:#75715e">//等待移动一层楼的时间
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#111">elevator</span><span style="color:#f92672">.</span><span style="color:#75af00">status</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Waiting</span><span style="color:#f92672">(</span><span style="color:#00a8c8">false</span><span style="color:#f92672">);</span><span style="color:#75715e">//跳转到决策状态，决定电梯下一步是开门还是运行到下一层
 </span></span></span></code></pre></div><h2 id="四bug分析">四、bug分析</h2>
 <h3 id="1第一次作业的零散bug">1、第一次作业的零散bug</h3>
 <p>第一次作业由于电梯状态机刚刚设计，在设计迭代的过程中发现了很多bug，比如反复开关门，乘客瞬移楼层等等。经过不断构造样例和断点调试，终于有惊无险的通过了中测。</p>
@@ -362,7 +366,7 @@ $$
 
 </p>
 <p>经过第一次作业测试样例构造失败的教训，从第二次作业开始使用思维导图来有条理的构造测试样例。在样例的保存方式上，也采用了更加有条理的方式。以下是部分测试样例的文件树。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>..<span style="color:#f1fa8c">\D</span>ATA
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>..<span style="color:#8045ff">\D</span>ATA
 </span></span><span style="display:flex;"><span>├─bug
 </span></span><span style="display:flex;"><span>├─MidTimeAdd
 </span></span><span style="display:flex;"><span>├─Multi
@@ -486,6 +490,8 @@ $$
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
+                        
+                        
                         
                         
                         

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Arthuring&#39;s Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://Arthuring.github.io/img/home-bg-flower31.jpg">
+    <meta property="twitter:image" content="https://Arthuring.github.io/img/home-bg-flower31.jpg" />
+    
+
+    
+    <meta name="title" content="BUAA-CO-条件写类指令处理方法" />
+    <meta property="og:title" content="BUAA-CO-条件写类指令处理方法" />
+    <meta property="twitter:title" content="BUAA-CO-条件写类指令处理方法" />
+    
+
+    
+    <meta name="description" content="关于比较易错的条件写类指令的处理方法">
+    <meta property="og:description" content="关于比较易错的条件写类指令的处理方法" />
+    <meta property="twitter:description" content="关于比较易错的条件写类指令的处理方法" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Arthuring">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>BUAA-CO-条件写类指令处理方法 | Arthuring Blog</title>
+
+    <link rel="canonical" href="/2021/12/08/BUAA-CO-ConditionalWriting/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Arthuring&#39;s Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/co">co</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/oo">oo</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/post-bg-clowd.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/computer-organism" title="Computer Organism">
+                            Computer Organism
+                        </a>
+                        
+                    </div>
+                    <h1>BUAA-CO-条件写类指令处理方法</h1>
+                    <h2 class="subheading">co-lab6上机前总结</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Arthuring
+                             
+                            on 
+                            Wednesday, December 8, 2021
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1 id="条件写类指令处理方法">条件写类指令处理方法</h1>
+<p><strong>采用谨慎转发策略，防止在写和不写之间选择的指令产生错误转发</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-verilog" data-lang="verilog"><span style="display:flex;"><span>    <span style="color:#00a8c8">assign</span> <span style="color:#111">D_MFRD1Sel</span> <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">(</span><span style="color:#111">E_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span><span style="color:#ae81ff">&#39;b0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">D_rs_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">E_A</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">E_Tnew</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>		<span style="color:#f92672">?</span> <span style="color:#00a8c8">`E_TO_D</span>   <span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">(</span><span style="color:#111">M_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span><span style="color:#ae81ff">&#39;b0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">D_rs_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">M_A</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">M_Tnew</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>		<span style="color:#f92672">?</span> <span style="color:#00a8c8">`M_TO_D</span>   <span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">`NoForward</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">assign</span> <span style="color:#111">D_MFRD2Sel</span> <span style="color:#f92672">=</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#111">E_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span><span style="color:#ae81ff">&#39;b0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">D_rt_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">E_A</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">E_Tnew</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>    <span style="color:#f92672">?</span> <span style="color:#00a8c8">`E_TO_D</span>   <span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">(</span><span style="color:#111">M_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span><span style="color:#ae81ff">&#39;b0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">D_rt_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">M_A</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">M_Tnew</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>    <span style="color:#f92672">?</span> <span style="color:#00a8c8">`M_TO_D</span>   <span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">`NoForward</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">assign</span> <span style="color:#111">E_MFRD1Sel</span> <span style="color:#f92672">=</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#111">M_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span><span style="color:#ae81ff">&#39;b0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">E_rs_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">M_A</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">M_Tnew</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>  	<span style="color:#f92672">?</span> <span style="color:#00a8c8">`M_TO_E</span>   <span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">(</span><span style="color:#111">W_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span><span style="color:#ae81ff">&#39;b0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">E_rs_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">W_A</span><span style="color:#111">)</span>    					<span style="color:#f92672">?</span> <span style="color:#00a8c8">`W_TO_E</span>   <span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">`NoForward</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">assign</span> <span style="color:#111">E_MFRD2Sel</span> <span style="color:#f92672">=</span> 
+</span></span><span style="display:flex;"><span>    <span style="color:#111">(</span><span style="color:#111">M_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span><span style="color:#ae81ff">&#39;b0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">E_rt_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">M_A</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">M_Tnew</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span>		<span style="color:#f92672">?</span> <span style="color:#00a8c8">`M_TO_E</span>   <span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">(</span><span style="color:#111">W_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span><span style="color:#ae81ff">&#39;b0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">E_rt_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">W_A</span><span style="color:#111">)</span>    					<span style="color:#f92672">?</span> <span style="color:#00a8c8">`W_TO_E</span>   <span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">`NoForward</span><span style="color:#111">;</span>
+</span></span></code></pre></div><h2 id="条件在d级生成">条件在D级生成</h2>
+<p>例如条件跳转写入 <code>blztal</code> 所有正确信息均在E级齐全，只需将条件流水并传入各级CU计算出正确的写入地址。阻塞逻辑和转发逻辑不变。</p>
+<p>若写入值在D级也齐全，则</p>
+<p><code>D_Tuse_rt = 0; D_Tuse_rs = 0;</code></p>
+<p><code>E_Tnew = 0; M_Tnew = 0;</code></p>
+<p>若写入值不确定，则具体问题具体分析，分析出E_Tnew以及M_Tnew</p>
+<p><strong>阻塞逻辑</strong></p>
+<p>X = E/M</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-verilog" data-lang="verilog"><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">X_stall_new_rs</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">X_new</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_Tuse_rs</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">X_Tnew</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">X_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_rs_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">X_A</span><span style="color:#111">)</span>  <span style="color:#75715e">//其实与正常情况相同，无需特殊处理
+</span></span></span></code></pre></div><h2 id="条件在e级生成">条件在E级生成</h2>
+<p>例如条件计算写入，写入条件（目的地）在E级生成，在M级之后可以得到正确的地址信息。</p>
+<p><code>D_Tuse_rt = 1; D_Tuse_rs = 1;//视具体情况可能有所不同 </code></p>
+<p><code>E_Tnew = 1; M_Tnew = 0;//E_Tnew至少为1，视写入值产生的时间而不同</code></p>
+<p><strong>阻塞逻辑</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-verilog" data-lang="verilog"><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">E_stall_new_rs</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">E_new</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_Tuse_rs</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">E_Tnew</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_rs_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">AllPossibel</span><span style="color:#111">(</span><span style="color:#111">E_A</span><span style="color:#111">));</span><span style="color:#75715e">//为了防止缺漏，故去掉了E_A ！= 0 的条件，不抢这一拍了
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">assign</span> <span style="color:#111">E_stall_new_rt</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">E_new</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_Tuse_rt</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">E_Tnew</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_rt_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">AllPossibel</span><span style="color:#111">(</span><span style="color:#111">E_A</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">E_stall_rs</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">E_new</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_Tuse_rs</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">E_Tnew</span> <span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">E_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span><span style="color:#ae81ff">&#39;b0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">D_rs_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">E_A</span><span style="color:#111">);</span><span style="color:#75715e">//或许需要将正常情况和新指令分离
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">E_stall_new</span> <span style="color:#f92672">=</span> <span style="color:#111">E_stall_new_rs</span> <span style="color:#f92672">|</span> <span style="color:#111">E_stall_new_rt</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">stall</span> <span style="color:#f92672">=</span> <span style="color:#111">E_stall</span> <span style="color:#f92672">|</span> <span style="color:#111">M_stall</span> <span style="color:#f92672">|</span> <span style="color:#111">E_stall_new</span> <span style="color:#f92672">|</span> <span style="color:#111">md_stall</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//M级的阻塞逻辑与正常情况相同，因为已经得到正确的地址，只需将条件信号传入CU计算地址即可
+</span></span></span></code></pre></div><h2 id="条件在m级生成">条件在M级生成</h2>
+<p>例如条件储存写入，写入条件（目的地）在M级生成，在W级可以得到全部正确信息
+<code>D_Tuse_rt = 1; D_Tuse_rs = 0/1/2;//视具体情况可能有所不同 </code></p>
+<p><code>E_Tnew = 2; M_Tnew = 1;//E_Tnew至少为2，视写入值产生的时间而不同</code>
+<strong>阻塞逻辑</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-verilog" data-lang="verilog"><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">E_stall_new_rs</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">E_new</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_Tuse_rs</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">E_Tnew</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_rs_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">AllPossible</span><span style="color:#111">(</span><span style="color:#111">E_A</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">E_stall_new_rt</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">E_new</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_Tuse_rt</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">E_Tnew</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_rt_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">AllPossible</span><span style="color:#111">(</span><span style="color:#111">E_A</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">M_stall_new_rs</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">M_new</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_Tuse_rs</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">M_Tnew</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_rs_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">AllPossible</span><span style="color:#111">(</span><span style="color:#111">M_A</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">M_stall_new_rt</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#111">M_new</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_Tuse_rt</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">M_Tnew</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_rt_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">AllPossible</span><span style="color:#111">(</span><span style="color:#111">M_A</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//E级和M级都进行特殊处理
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">assign</span> <span style="color:#111">E_stall_rs</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">E_new</span><span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">D_Tuse_rs</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">E_Tnew</span> <span style="color:#111">)</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">(</span><span style="color:#111">E_A</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">5</span><span style="color:#ae81ff">&#39;b0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">D_rs_ad</span> <span style="color:#f92672">==</span> <span style="color:#111">E_A</span><span style="color:#111">);</span><span style="color:#75715e">//或许需要将正常情况和新指令分离
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">E_stall_new</span> <span style="color:#f92672">=</span> <span style="color:#111">E_stall_new_rs</span> <span style="color:#f92672">|</span> <span style="color:#111">E_stall_new_rt</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">M_stall_new</span> <span style="color:#f92672">=</span> <span style="color:#111">M_stall_new_rs</span> <span style="color:#f92672">|</span> <span style="color:#111">M_stall_new_rt</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">assign</span> <span style="color:#111">stall</span> <span style="color:#f92672">=</span> <span style="color:#111">E_stall</span> <span style="color:#f92672">|</span> <span style="color:#111">M_stall</span> <span style="color:#f92672">|</span> <span style="color:#111">E_stall_new</span> <span style="color:#f92672">|</span> <span style="color:#111">M_stall_new</span> <span style="color:#f92672">|</span> <span style="color:#111">md_stall</span><span style="color:#111">;</span>
+</span></span></code></pre></div>
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2022/03/16/BUAA-OO-Unit1-ExpressionExtent/" data-toggle="tooltip" data-placement="top" title="BUAA-OO-Unit1-ExpressionExtent">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        <a href="/tags/object-oriented" title="object-oriented">
+                            object-oriented
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://stywang.github.io/">StyWang</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:1274029432@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/Arthuring">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Arthuring&#39;s Blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Arthuring&#39;s Blog 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+</body>
+</html>
