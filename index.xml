@@ -6,7 +6,16 @@
     <description>Recent content on Arthuring&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Apr 2022 01:00:00 +0000</lastBuildDate><atom:link href="https://Arthuring.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Jun 2022 11:00:00 +0000</lastBuildDate><atom:link href="https://Arthuring.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BUAA-OO-Unit3-CommunicationNet</title>
+      <link>https://Arthuring.github.io/2022/06/2/BUAA-OO-Unit3-CommunicationNet/</link>
+      <pubDate>Thu, 02 Jun 2022 11:00:00 +0000</pubDate>
+      
+      <guid>https://Arthuring.github.io/2022/06/2/BUAA-OO-Unit3-CommunicationNet/</guid>
+      <description>第三单元作业总结&amp;ndash;JML与社交网络实现 关于基于JML测试 本单元指导书中推荐的测试方法是进行JUnit测试。在简单尝试后，我感觉J</description>
+    </item>
+    
     <item>
       <title>BUAA-OO-Unit2-Elevator </title>
       <link>https://Arthuring.github.io/2022/04/30/BUAA-OO-Unit2-Elevator/</link>
@@ -50,15 +59,6 @@
       
       <guid>https://Arthuring.github.io/top/books/</guid>
       <description>这里什么都没有哦</description>
-    </item>
-    
-    <item>
-      <title>BUAA-OO-Unit3-CommunicationNet</title>
-      <link>https://Arthuring.github.io/2022/06/2/BUAA-OO-Unit3-CommunicationNet/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://Arthuring.github.io/2022/06/2/BUAA-OO-Unit3-CommunicationNet/</guid>
-      <description>第三单元作业总结&amp;ndash;JML与社交网络实现 关于基于JML测试 本单元指导书中推荐的测试方法是进行JUnit测试。在简单尝试后，我感觉J</description>
     </item>
     
     <item>
