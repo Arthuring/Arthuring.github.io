@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Arthuring&#39;s Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https://Arthuring.github.io/img/home-bg-flower31.jpg">
+    <meta property="twitter:image" content="https://Arthuring.github.io/img/home-bg-flower31.jpg" />
+    
+
+    
+    <meta name="title" content="BUAA-OO-Unit4-UMLparser&amp;courseSummary" />
+    <meta property="og:title" content="BUAA-OO-Unit4-UMLparser&amp;courseSummary" />
+    <meta property="twitter:title" content="BUAA-OO-Unit4-UMLparser&amp;courseSummary" />
+    
+
+    
+    <meta name="description" content="BUAA_OO_Unit4总结！OO课完结撒花！">
+    <meta property="og:description" content="BUAA_OO_Unit4总结！OO课完结撒花！" />
+    <meta property="twitter:description" content="BUAA_OO_Unit4总结！OO课完结撒花！" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="Arthuring">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>BUAA-OO-Unit4-UMLparser&amp;courseSummary | Arthuring Blog</title>
+
+    <link rel="canonical" href="/2022/06/26/BUAA-OO-Unit4-UMLparser&amp;courseSummary/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+    
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        processEnvironments: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  
+    window.addEventListener('load', (event) => {
+        document.querySelectorAll("mjx-container").forEach(function(x){
+          x.parentElement.classList += 'has-jax'})
+      });
+  
+  </script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Arthuring&#39;s Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/oo">oo</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/top/books/">BOOKS</a></li>
+                    
+                        <li><a href="/top/archive/">ARCHIVE</a></li>
+                    
+                        <li><a href="/top/about/">ABOUT</a></li>
+                    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/post-bg-flower2.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/object-oriented" title="Object Oriented">
+                            Object Oriented
+                        </a>
+                        
+                    </div>
+                    <h1>BUAA-OO-Unit4-UMLparser&amp;courseSummary</h1>
+                    <h2 class="subheading">OO-U4总结-UML解析器&amp;课程总结</h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Arthuring
+                             
+                            on 
+                            Sunday, June 26, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <h1 id="第四单元--uml解析器--oo课程总结">第四单元&ndash;UML解析器 &amp; OO课程总结</h1>
+<h2 id="一第四单元架构设计">一、第四单元架构设计</h2>
+<p>本次作业的要求是实现一个UML解析器，对于从mdj的输入转化成建模好的UML图中元素这一步，课程组已经帮我们完成，我们需要完成的，就是把离散的、单独的UML元素按照UML规定的结构建立层次关系，从而实现对UML图的各种查询指令。总体上来说，本单元作业难度不大，但是细节颇多，很容易陷入细节，常常为在什么细节上翻车而担忧，有些头疼QAQ。</p>
+<h3 id="11-第一次作业">1.1 第一次作业</h3>
+<p>本次作业实现了对于UML类图的解析，主要架构如下</p>
+<p>
+  <img src="https://s1.ax1x.com/2022/06/26/jENOjP.png" alt="">
+
+</p>
+<p>这一次作业就是按照UML的类图模型对<code>UmlElement</code>进行建模，由于mdj文件的输入顺序是随机的，而层次之间有依赖关系，因此我通过多次循环的方法，先读入后续元素依赖的元素。并且尽可能将无关元素在一次循环中都处理，尽可能减少遍历次数，最终的读入顺序在第三次作业架构中呈现。</p>
+<p>通过采用<code>HashMap</code>，保存一个<code>id-&gt;element</code>的映射，这样在查找元素的时候，时间复杂度较低。</p>
+<p>将这些elements层次化建模之后，再在Implementation中调用各个类各自的查询方法就可以比较容易的实现要求的指令了。</p>
+<h3 id="12-第二次作业">1.2 第二次作业</h3>
+<p>本次作业实现了对于UML顺序图和状态图的解析，主要架构如下</p>
+<p>
+  <img src="https://s1.ax1x.com/2022/06/26/jENq1I.png" alt="">
+
+</p>
+<p>本次作业添加了UML顺序图和类图的解析，总体上和第一次作业差不多，都是根据UML规定来对这些element进行层次化建模。</p>
+<p>本次作业的<code>FinalState</code>、<code>PseudoState</code>、和普通State是三种不同的element，但它们在状态图路径查找中的性质又是类似的，因此我将他们重新包装，并让它们继承自<code>MyGeneralState</code>，这样在写判断是不是关键状态的时候会简单一些。</p>
+<p>另外，为了<code>MyImplementation</code>不超过500行，我将最初建模相关的实现都转移到了Creator中。</p>
+<h3 id="13-第三次作业">1.3 第三次作业</h3>
+<p>
+  <img src="https://s1.ax1x.com/2022/06/26/jENLct.png" alt="">
+
+</p>
+<p>本次作业是添加了关于UML图合法性的检查，与前几次不同的是，这次作业的输入中有可能有循环继承的情况，并且由于我之前的<code>addSuperInterface</code>和<code>addInterface</code>都是通过递归实现的，如果含有循环继承，那么就会出现无穷递归的问题，因此在这两个方法中需要稍作修改，维护一个变量将已经访问过的class或interface标记，以防被重复访问导致无穷递归。</p>
+<p>同时，为了避免<code>MyImplementation</code>类过长，本次作业添加的关于规则检查类的实现，都放在了Checker当中。</p>
+<p>最终的读入处理顺序如下</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">loop1</span><span style="color:#ff79c6">(</span>UmlElement element<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    element <span style="color:#ff79c6">instanceof</span> UmlClass
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlInterface
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlStateMachine
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlCollaboration
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlAssociation
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">loop2</span><span style="color:#ff79c6">(</span>UmlElement element<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlOperation
+</span></span><span style="display:flex;"><span>    element <span style="color:#ff79c6">instanceof</span> UmlAttribute
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlRegion
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlLifeline
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlEndpoint
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlAssociationEnd
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">loop3</span><span style="color:#ff79c6">(</span>UmlElement element<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlGeneralization
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlParameter
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlPseudostate <span style="color:#ff79c6">||</span>element <span style="color:#ff79c6">instanceof</span> UmlState <span style="color:#ff79c6">||</span>element <span style="color:#ff79c6">instanceof</span> UmlFinalState
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlMessage
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">loop4</span><span style="color:#ff79c6">(</span>UmlElement element<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlInterfaceRealization
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlTransition
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">loop5</span><span style="color:#ff79c6">(</span>UmlElement element<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>	element <span style="color:#ff79c6">instanceof</span> UmlEvent
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></div><h2 id="二四个单元中架构设计思维以及oo方法理解演进">二、四个单元中架构设计思维以及OO方法理解演进</h2>
+<h3 id="21-第一单元">2.1 第一单元</h3>
+<p>第一单元的主要架构设计思维是层次化，将表达式中的元素进行分层抽象，对具有某些共同性质的元素统一编写方法，并且要求这个抽象可以尽量经得起多次迭代增加需求的考验。这个单元最重要的任务就是对表达式进行层次化的抽象和储存，找到元素之间的共性，比如常熟因子和幂函数因子实质上可以统一成 <code>常数*x**指数</code>的形式，各种复杂的包含三角因子的项可以统一成<code>常数*HashMap&lt;三角因子/x,指数&gt;</code>的形式。如果建立好了层次化模型，并且将每个层次需要完成的工作都设计好，那么在需求增加的时候，可以几乎不用改变架构，即可取得不错的效果。</p>
+<p>并且这个单元非常好的体现出了面向对象程序设计的特点：封装，继承，多态。在面对复杂的情景时，利用封装将问题转化成更加容易的小部分，利用继承来使代码得到复用，利用多态来让不同的类可以部分拥有相同的性质，有效降低了设计和编码的复杂度。</p>
+<h3 id="22-第二单元">2.2 第二单元</h3>
+<p>第二单元的任务主要是学习多线程程序设计的基础知识，并掌握线程安全控制的方法。在这次作业中，我体会到了好的设计模式带来的便利。例如本次作业中，我采用了生产者消费者这一设计模式来保证线程安全，将保护线程安全的任务仅交给充当buffer角色的类。在设计buffer时，集中考虑线程安全问题，这样在设计生产者和消费者时，就完全不需要考虑线程安全问题，设计起来就非常流畅顺利，不会因为担心线程安全问题而被打断思路。并且如果线程安全出了bug，直接检查buffer类就可以，并不需要在各个类中四处寻找bug，这让debug效率也变高了。事实上，采用了这种设计模式，就几乎没有出现过线程安全的bug了，这部分时间精力就可以用来优化性能啦。</p>
+<p>这个单元第二个重要的任务是保护电梯的状态转移正确，我学会了采用状态模式来设计电梯的行为，这样只要保证状态转移不出错，状态转移的条件不出错，那么整个电梯的运行也不需要过多的担心。</p>
+<h3 id="23-第三单元">2.3 第三单元</h3>
+<p>第三单元由于总体架构已经被安排好，因此本单元的重点是理解规格化，形式化的表达。形式化的表达让信息传递的细节更加准确，但同时也增加了阅读和理解的成本，可以说是有利有弊。如果将形式化表述和自然语言表达的优点相结合，会不会达到更好的效果呢？</p>
+<h3 id="24-第四单元">2.4 第四单元</h3>
+<p>第四单元在架构设计上发挥的空间也不是很大，因为UML的规则已经帮我们设计好了大体的架构，剩下需要我们做的就是在细节上做设计，从而达到更好的适应需求，更好的算法性能等目的。这一单元的架构也很有层次化的特点，我对层次化架构设计的理解加深了。</p>
+<h2 id="三测试的演进">三、测试的演进</h2>
+<h3 id="31-第一单元">3.1 第一单元</h3>
+<p>第一单元我搭建了完成的评测机，包括基于形式化文法的数据生成，以及基于sympy的正确性评测机，以及和小伙伴的对拍机</p>
+<h3 id="32-第二单元">3.2 第二单元</h3>
+<p>第二单元我和小伙伴合作完成了评测机，完成了电梯日志输出合理性的检测。数据构造方面利用测试树，手工构造数据以及构造极端数据，尽量保证覆盖率。</p>
+<h3 id="33-第三单元">3.3 第三单元</h3>
+<p>第三单元我和小伙伴合作完成了评测机，完成了基于指令格式的数据生成机，并且在随机生成中添加了一些生成策略，让数据强度更高。在正确性评测方面采用了对拍方式。</p>
+<h3 id="34-第四单元">3.4 第四单元</h3>
+<p>第四单元考虑到随机生成难度较大，并且期末时间紧张，采用了基于测试树的数据手工构造，这单元由于测试分支都比较明确，因此手工构造数据测试相比其他单元的有效性更强一些。正确性检验采用白盒测试，以及对拍两种方式尽量确保正确。</p>
+<p>比较遗憾的是由于时间关系和对测试效果的考量，没能用上JUnit测试，希望可以在以后的学习中再做进一步了解。</p>
+<h2 id="四课程收获">四、课程收获</h2>
+<ul>
+<li>
+<p>第一单元带给我基本的分层建模的设计思想以及面向对象程序设计的基本知识，让我认识到合理架构设计的重要性</p>
+</li>
+<li>
+<p>第二单元带给我多线程程序设计的基本知识和简单实践，让我认识到优秀的设计模式的极大便捷性</p>
+</li>
+<li>
+<p>第三单元带给我形式化表述需求和规格化变成的思想，让我认识到形式化语言的优点和缺点</p>
+</li>
+<li>
+<p>第四单元带给我UML类图相关知识</p>
+<p>另外：</p>
+</li>
+<li>
+<p>多次实践了评测机的编写，体验了测试代码的基本流程</p>
+</li>
+<li>
+<p>在被checkstyle规范了一学期后养成了规范代码风格的好习惯</p>
+</li>
+<li>
+<p>体验了合作开发的流程，收获了合作开发的乐趣</p>
+</li>
+<li>
+<p>抗压能力变得更强 :) ！</p>
+</li>
+</ul>
+<h2 id="五给课程提供的建议">五、给课程提供的建议</h2>
+<ul>
+<li>关于第一单元</li>
+</ul>
+<p>关于第一次作业，感觉pre内容和第一次作业难度跨度好大，不仅要继续熟悉java的用法，还要学习理解正则表达式、递归下降等内容，时间仅有一周，感觉时间比较紧张，感觉可以把递归下降这种内容也加入到pre里，让感兴趣的同学充分利用开学前几周分散压力。</p>
+<ul>
+<li>关于第四单元</li>
+</ul>
+<p>第四单元的知识和作业总有种说不上的不匹配感，这一单元我们学习UML类图等相关的模型化设计的知识，在作业中确实也有相关体现，确实做完作业就更加理解了这些知识，但是在做第四单元作业时，我的重点却常常不是这些UML模型的知识相关问题，而是需要花很多时间来研究各种细枝末节的问题，比如说究竟哪些元素的名字可能为空，为空之后要怎么特殊处理，之前在数据上的保证之后还有没有用，等等。虽然指导书中已经给出了一定的形式化说明和限制，但是有些地方还是比较模糊，并且比较分散。比如我们虽然在附录中给出了输入限制说明，但是如</p>
+<blockquote>
+<p>除额外说明，所有的 <code>name</code> 字段<strong>都不作任何保证</strong>，即均可能为 <code>null</code>，或空字符串 <code>&quot;&quot;</code>，或有其他内容的字符串。</p>
+</blockquote>
+<p>中的”除额外说明“，又使信息分散了，还需要花费精力寻找额外说明，并且还可能有所遗漏。再如</p>
+<blockquote>
+<p>规定类、操作、属性、非返回值的参数、接口<strong>等</strong>对象的名称不能为 <code>null</code></p>
+</blockquote>
+<p>其中的”等“给语义带来了模糊</p>
+<p>建议可以再把数据限制之类的信息集中一下，或者加强对于某些特殊数据的限制，让同学们的注意力集中在UML图的元素和关系上。</p>
+<p>当然通过观察学长们的博客，我感觉今年的第四单元的清晰程度已经比往年有了很大的提升了，希望将来能变得更加完善~</p>
+<ul>
+<li>关于互测</li>
+</ul>
+<p>第一单元互测的时候公测标准和互测标准不太一样，甚至可以说是有很大差别，就导致有些bug刀不到，就很遗憾。虽然知道由于评测压力，数据合法性检验比较难搞定，但还是希望能尽可能的使互测和公测标准贴近一些，不辜负同学们找bug的努力和找到bug激动的心情呀</p>
+<hr>
+<p>一学期的OO课程到这里就要真正步入尾声啦！感谢OO课程给我带来的宝贵知识和经验，感谢OO课程组的老师和助教们的辛勤付出，感谢带给我帮助，一起前进的小伙伴，希望OO课程越来越好！</p>
+
+
+                
+
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2022/06/2/BUAA-OO-Unit3-CommunicationNet/" data-toggle="tooltip" data-placement="top" title="BUAA-OO-Unit3-CommunicationNet">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
+                
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/object-oriented" title="object-oriented">
+                            object-oriented
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://stywang.github.io/">StyWang</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    <li>
+                        <a href="mailto:1274029432@qq.com">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/Arthuring">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Arthuring&#39;s Blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Arthuring&#39;s Blog 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+</body>
+</html>

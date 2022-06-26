@@ -6,7 +6,16 @@
     <description>Recent content on Arthuring&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jun 2022 11:00:00 +0000</lastBuildDate><atom:link href="https://Arthuring.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Jun 2022 11:00:00 +0000</lastBuildDate><atom:link href="https://Arthuring.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BUAA-OO-Unit4-UMLparser&amp;courseSummary</title>
+      <link>https://Arthuring.github.io/2022/06/26/BUAA-OO-Unit4-UMLparser&amp;courseSummary/</link>
+      <pubDate>Sun, 26 Jun 2022 11:00:00 +0000</pubDate>
+      
+      <guid>https://Arthuring.github.io/2022/06/26/BUAA-OO-Unit4-UMLparser&amp;courseSummary/</guid>
+      <description>第四单元&amp;ndash;UML解析器 &amp;amp; OO课程总结 一、第四单元架构设计 本次作业的要求是实现一个UML解析器，对于从mdj的输入转化成建模好的U</description>
+    </item>
+    
     <item>
       <title>BUAA-OO-Unit3-CommunicationNet</title>
       <link>https://Arthuring.github.io/2022/06/2/BUAA-OO-Unit3-CommunicationNet/</link>
