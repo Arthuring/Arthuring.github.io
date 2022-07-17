@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Arthuring&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jun 2022 11:00:00 +0000</lastBuildDate><atom:link href="https://Arthuring.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Jun 2022 23:00:00 +0000</lastBuildDate><atom:link href="https://Arthuring.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BUAA-OS-Lab6-challengeRepo</title>
+      <link>https://Arthuring.github.io/2022/06/30/BUAA-OS-Lab6-challengeRepo/</link>
+      <pubDate>Thu, 30 Jun 2022 23:00:00 +0000</pubDate>
+      
+      <guid>https://Arthuring.github.io/2022/06/30/BUAA-OS-Lab6-challengeRepo/</guid>
+      <description>Lab6-Challenge实验报告 [toc] 上图是lab6中 实现的shell，在此基础上，进行更改，完成了challenge任务，修改后的shel</description>
+    </item>
+    
     <item>
       <title>BUAA-OO-Unit4-UMLparser&amp;courseSummary</title>
       <link>https://Arthuring.github.io/2022/06/26/BUAA-OO-Unit4-UMLparser&amp;courseSummary/</link>
